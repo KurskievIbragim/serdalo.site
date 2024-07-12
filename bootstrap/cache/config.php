@@ -3,14 +3,14 @@
   array (
     'name' => 'Laravel',
     'env' => 'local',
-    'debug' => false,
-    'url' => 'http://serdalo.ru',
+    'debug' => true,
+    'url' => 'http://localhost',
     'asset_url' => NULL,
     'timezone' => 'Europe/Moscow',
     'locale' => 'ru',
     'fallback_locale' => 'en',
     'faker_locale' => 'ru_RU',
-    'key' => 'base64:SpcFVVOvJ8Bfy7Px0H/fw1ulmmnsg+rTEcUmu/UnRIc=',
+    'key' => 'base64:od894O8m0FNenX9qcsAkOsDYYuptYWwXQPAyxEopNtQ=',
     'cipher' => 'AES-256-CBC',
     'providers' => 
     array (
@@ -284,7 +284,7 @@
         'port' => '3306',
         'database' => 'serdalo',
         'username' => 'root',
-        'password' => 'ndfhmsql1',
+        'password' => 'Ap_17$Psa',
         'unix_socket' => '',
         'charset' => 'utf8mb4',
         'collation' => 'utf8mb4_unicode_ci',
@@ -324,7 +324,7 @@
         'port' => '3306',
         'database' => 'serdalo',
         'username' => 'root',
-        'password' => 'ndfhmsql1',
+        'password' => 'Ap_17$Psa',
         'charset' => 'utf8',
         'prefix' => '',
         'prefix_indexes' => true,
@@ -339,7 +339,7 @@
         'port' => '3306',
         'database' => 'serdalo',
         'username' => 'root',
-        'password' => 'ndfhmsql1',
+        'password' => 'Ap_17$Psa',
         'charset' => 'utf8',
         'prefix' => '',
         'prefix_indexes' => true,
@@ -511,14 +511,14 @@
       array (
         'driver' => 'local',
         'root' => '/var/www/serdalo.site/storage/app/public',
-        'url' => 'http://serdalo.ru/storage',
+        'url' => 'http://localhost/storage',
         'visibility' => 'public',
       ),
       'public-old' => 
       array (
         'driver' => 'local',
         'root' => '/var/www/serdalo.site/storage/app/public/sites',
-        'url' => 'http://serdalo.ru/',
+        'url' => 'http://localhost/',
         'visibility' => 'public',
       ),
       's3' => 
@@ -945,7 +945,7 @@
       2 => '127.0.0.1',
       3 => '127.0.0.1:8000',
       4 => '::1',
-      5 => 'serdalo.ru',
+      5 => 'localhost',
     ),
     'guard' => 
     array (

@@ -16,6 +16,8 @@ use App\Http\Controllers\Api\v1\Admin\MaterialsTranslationsController as AdminMa
 use App\Http\Controllers\Api\v1\Admin\CategoriesController as AdminCategoriesController;
 use App\Http\Controllers\Api\v1\Admin\AuthorsController as AdminAuthorsController;
 use App\Http\Controllers\Api\v1\Admin\AuthorsTranslationsController as AdminAuthorsTranslationsController;
+use App\Http\Controllers\Api\v1\Admin\ExpertController as AdminExpertController;
+
 use App\Http\Controllers\Api\v1\Admin\NewspapersController as AdminNewspapersController;
 use App\Http\Controllers\Api\v1\Admin\StatisticsController as AdminStatisticsController;
 use App\Http\Controllers\Api\v1\Admin\VideoArticlesController as AdminVideoArticlesController;
@@ -85,6 +87,9 @@ Route::middleware(['auth:sanctum'])->prefix('admin')->group(function() {
         Route::get('/authors_translations/{id}/edit', [AdminAuthorsTranslationsController::class, 'edit'], ['as' => 'admin'])->name('authors_translations.edit');
         Route::put('/authors_translations/{id}', [AdminAuthorsTranslationsController::class, 'update'], ['as' => 'admin'])->name('authors_translations.update');
     });
+
+    Route::resource('experts', AdminExpertController::class, ['as' => 'admin']);
+
 
     Route::resource('files', AdminFilesController::class, ['as' => 'admin']);
 
