@@ -45,10 +45,9 @@ class Post extends Model
     protected $guarded = false;
 
     protected $table = 'posts';
-    protected $date=['published_at'];
-
 
     protected $appends = ['title_short', 'display_published_at'];
+
 
     /*public function getFileAttribute($value)
     {
@@ -116,4 +115,9 @@ class Post extends Model
     {
         return $this->hasOne(Author::class, 'id', 'author_id');
     }
+
+    public function category()
+    {
+    	return $this->belongsTo(Category::class, 'category_id');
+    } 
 }

@@ -44,8 +44,6 @@ class ArchiveController extends Controller
 
         $view = 'frontend.v3.archive.index';
 
-        $view = 'frontend.archive.index';
-
         return view($view, [
             'categories' => $categories,
             'newspapers' => $newspapers,

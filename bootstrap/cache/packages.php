@@ -88,17 +88,6 @@
       0 => 'Laravel\\Ui\\UiServiceProvider',
     ),
   ),
-  'mad-web/laravel-robots' => 
-  array (
-    'providers' => 
-    array (
-      0 => 'MadWeb\\Robots\\RobotsServiceProvider',
-    ),
-    'aliases' => 
-    array (
-      'Robots' => 'MadWeb\\Robots\\RobotsFacade',
-    ),
-  ),
   'nesbot/carbon' => 
   array (
     'providers' => 

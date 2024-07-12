@@ -1,10 +1,9 @@
 <!-- sidebar Новости -->
 <div class="cm-news_sidebar-wrapper col-span-10 sm:col-span-3 lg:col-span-2 xl:col-span-2 xl:pb-5">
     <div class="cm-news_sidebar flex flex-col gap-3 bg-1 xl:py-2.5">
-        <h3 class="text-2xl font-extrabold px-3">{{ __('Новости') }}</h3>
         @foreach($posts_main as $post_main)
             <div class="cm-news_sidebar-item font-medium px-2.5 pb-2.5 border-b border-color-3 last:border-b-0">
-                <div  style="display: flex; justify-content: space-between;">
+                <div  style="display: flex; justify-content: space-between;" class="news-date-mobile">
                     @if(\Carbon\Carbon::parse($post_main->published_at)->isToday())
                         <div class="flex justify-between">
                         <span class="block mb-1.5 cm-article-date font-bold color-7">

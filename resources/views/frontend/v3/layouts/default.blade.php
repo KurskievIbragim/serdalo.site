@@ -1,19 +1,29 @@
 <!DOCTYPE html>
 <html>
     <head>
-        {!! Robots::metaTag() !!}
-        <title>
-    @isset($post)
-        {{ $post->title }} — все новости Ингушетии в Газете "Сердало"
-    @else
+	<meta charset="UTF-8">
+     	<title>
+    @if (Route::is('home'))
+       Новости Ингушетии -  Газета "Сердало"
+    @elseif (Route::is('posts.index'))
+       Новости Ингушетии -  Газета "Сердало"
+    @elseif (Route::is('materials.index'))
+       Новости Ингушетии -  Газета "Сердало" 
+    @elseif (Route::is('post-single'))
+        @isset($post)
+            {{ $post->title }} — все новости Ингушетии в Газете "Сердало"
+        @endisset
+    @elseif (Route::is('material-single'))
         @isset($material)
             {{ $material->title }} — все новости Ингушетии в Газете "Сердало"
-        @else
-            Газета "Сердало" - Новости Ингушетии
         @endisset
-    @endisset
+    @else
+       Новости Ингушетии - Газета "Сердало"
+    @endif
 </title>
-        <meta charset="UTF-8">
+
+
+	<meta name="robots" content="all"/>
         <meta property="og:locale" content="ru_RU"/>
         <meta property="og:title" content="{{isset($post) ? $post->title : (isset($material) ? $material->title : 'Газета Седало — Новости Ингушетии')}}"/>
         <meta property="og:description" content="{{ isset($post) ? $post->lead : (isset($material) ? $material->lead : 'Общенациональная газета «Сердало» - главное печатное издание Республики Ингушетия, предоставляющее читателям наиболее полную, оперативную, надежную и объективную информацию.') }}"/>
@@ -206,6 +216,9 @@
             .slides-container {
                 height: unset;
             }
+		.news-date-mobile {
+			margin-top: 10px;
+		}
 
 		    .cm-article-subtitle {
                    	 font-size: 15px;
@@ -985,7 +998,9 @@
 
 
             @media (max-width: 480px) {
-
+		.mobile-journalism {
+			display: none !important;
+		}
 
                 .mobile-show-page {
                     display: block;
@@ -1112,6 +1127,7 @@
                 }
             }
         </style>
+	<script async src="https://cdn.ampproject.org/v0.js"></script>
     </head>
     <body>
         <div class="page_wrapper flex flex-col">
@@ -1304,7 +1320,7 @@
                                 <ul class="columns-2 font-semibold">
                                     <li class="mb-1.5 mobile-show-page"><a href="{{ route('posts-index') }}">{{ __('Новости') }}</a></li>
                                     <li class="mb-1.5 mobile-show-page"><a href="{{ route('materials-index') }}">{{ __('Статьи') }}</a></li>
-                                    <li class="mb-1.5 mobile-show-page"><a href="{{ route('journalism-index') }}">{{ __('Публицистика') }}</a></li>
+                                    <li class="mb-1.5 mobile-show-page mobile-journalism"><a href="{{ route('journalism-index') }}">{{ __('Публицистика') }}</a></li>
                                     @foreach($categories ?? [] as $category)
                                         @if($category->title !== 'Пресс-релизы' && $category->title !== 'Публицистика')
                                             <li class="mb-1.5">
@@ -1355,7 +1371,7 @@
                             </nav>
                             <nav class="modal-footer-nav color-4">
                                 <ul class="">
-                                    <li class="mb-1.5"><a href="#">{{ __('Об издании') }}</a></li>
+                                    <li class="mb-1.5"><a href="{{route('about')}}">{{ __('Об издании') }}</a></li>
                                     <li class="mb-1.5"><a href="#">{{ __('Контакты') }}</a></li>
                                     <!--<li class="mb-1.5"><a href="{{ route('change-version', 'v1') }}">v1</a></li>-->
                                     <!--<li class="mb-1.5"><a style="background: green" href="#">v3</a></li>-->

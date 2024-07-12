@@ -1,16 +1,16 @@
 <?php return array (
   'app' => 
   array (
-    'name' => 'news',
+    'name' => 'Laravel',
     'env' => 'local',
-    'debug' => true,
-    'url' => 'https://serdalo.ru',
+    'debug' => false,
+    'url' => 'http://serdalo.ru',
     'asset_url' => NULL,
     'timezone' => 'Europe/Moscow',
     'locale' => 'ru',
     'fallback_locale' => 'en',
     'faker_locale' => 'ru_RU',
-    'key' => 'base64:AxGmAujfUz2v7Kwli2hHUgMpOHo0mWLmuDO7e/bZ6ic=',
+    'key' => 'base64:SpcFVVOvJ8Bfy7Px0H/fw1ulmmnsg+rTEcUmu/UnRIc=',
     'cipher' => 'AES-256-CBC',
     'providers' => 
     array (
@@ -130,18 +130,18 @@
   ),
   'broadcasting' => 
   array (
-    'default' => 'log',
+    'default' => 'null',
     'connections' => 
     array (
       'pusher' => 
       array (
         'driver' => 'pusher',
-        'key' => '',
-        'secret' => '',
-        'app_id' => '',
+        'key' => NULL,
+        'secret' => NULL,
+        'app_id' => NULL,
         'options' => 
         array (
-          'cluster' => 'mt1',
+          'cluster' => NULL,
           'useTLS' => true,
         ),
       ),
@@ -189,7 +189,7 @@
       'file' => 
       array (
         'driver' => 'file',
-        'path' => '/media/www/serdalo.site/storage/framework/cache/data',
+        'path' => '/var/www/serdalo.site/storage/framework/cache/data',
       ),
       'memcached' => 
       array (
@@ -233,7 +233,7 @@
         'driver' => 'octane',
       ),
     ),
-    'prefix' => 'news_cache',
+    'prefix' => '',
   ),
   'cors' => 
   array (
@@ -272,7 +272,7 @@
       array (
         'driver' => 'sqlite',
         'url' => NULL,
-        'database' => 'serdalo_bes',
+        'database' => 'serdalo',
         'prefix' => '',
         'foreign_key_constraints' => true,
       ),
@@ -282,7 +282,7 @@
         'url' => NULL,
         'host' => '127.0.0.1',
         'port' => '3306',
-        'database' => 'serdalo_bes',
+        'database' => 'serdalo',
         'username' => 'root',
         'password' => 'ndfhmsql1',
         'unix_socket' => '',
@@ -302,9 +302,9 @@
         'url' => NULL,
         'host' => '127.0.0.1',
         'port' => '3306',
-        'database' => 'serdalobase',
-        'username' => 'root',
-        'password' => 'ndfhmsql1',
+        'database' => 'forge',
+        'username' => 'forge',
+        'password' => '',
         'unix_socket' => '',
         'charset' => 'utf8mb4',
         'collation' => 'utf8mb4_unicode_ci',
@@ -322,7 +322,7 @@
         'url' => NULL,
         'host' => '127.0.0.1',
         'port' => '3306',
-        'database' => 'serdalo_bes',
+        'database' => 'serdalo',
         'username' => 'root',
         'password' => 'ndfhmsql1',
         'charset' => 'utf8',
@@ -337,7 +337,7 @@
         'url' => NULL,
         'host' => '127.0.0.1',
         'port' => '3306',
-        'database' => 'serdalo_bes',
+        'database' => 'serdalo',
         'username' => 'root',
         'password' => 'ndfhmsql1',
         'charset' => 'utf8',
@@ -352,7 +352,7 @@
       'options' => 
       array (
         'cluster' => 'redis',
-        'prefix' => 'news_database_',
+        'prefix' => 'laravel_database_',
       ),
       'default' => 
       array (
@@ -374,7 +374,7 @@
   ),
   'debugbar' => 
   array (
-    'enabled' => false,
+    'enabled' => NULL,
     'except' => 
     array (
       0 => 'telescope*',
@@ -384,7 +384,7 @@
     array (
       'enabled' => true,
       'driver' => 'file',
-      'path' => '/media/www/serdalo.site/storage/debugbar',
+      'path' => '/var/www/serdalo.site/storage/debugbar',
       'connection' => NULL,
       'provider' => '',
       'hostname' => '127.0.0.1',
@@ -478,6 +478,25 @@
     'theme' => 'auto',
     'debug_backtrace_limit' => 50,
   ),
+  'feed' => 
+  array (
+    'feeds' => 
+    array (
+      'main' => 
+      array (
+        'items' => '',
+        'url' => '',
+        'title' => 'Сердало',
+        'description' => 'Общенациональная газета «Сердало» - главное печатное издание Республики Ингушетия, предоставляющее читателям наиболее полную, оперативную, надежную и объективную информацию.',
+        'language' => 'ru-RU',
+        'image' => '',
+        'format' => 'atom',
+        'view' => 'feed::atom',
+        'type' => '',
+        'contentType' => '',
+      ),
+    ),
+  ),
   'filesystems' => 
   array (
     'default' => 'local',
@@ -486,20 +505,20 @@
       'local' => 
       array (
         'driver' => 'local',
-        'root' => '/media/www/serdalo.site/storage/app',
+        'root' => '/var/www/serdalo.site/storage/app',
       ),
       'public' => 
       array (
         'driver' => 'local',
-        'root' => '/media/www/serdalo.site/storage/app/public',
-        'url' => 'https://serdalo.ru/storage',
+        'root' => '/var/www/serdalo.site/storage/app/public',
+        'url' => 'http://serdalo.ru/storage',
         'visibility' => 'public',
       ),
       'public-old' => 
       array (
         'driver' => 'local',
-        'root' => '/media/www/serdalo.site/storage/app/public/sites',
-        'url' => 'https://serdalo.ru/',
+        'root' => '/var/www/serdalo.site/storage/app/public/sites',
+        'url' => 'http://serdalo.ru/',
         'visibility' => 'public',
       ),
       's3' => 
@@ -516,8 +535,8 @@
     ),
     'links' => 
     array (
-      '/media/www/serdalo.site/public/storage' => '/media/www/serdalo.site/storage/app/public',
-      '/media/www/serdalo.site/public/sites' => '/media/www/serdalo.site/storage/app/public/sites',
+      '/var/www/serdalo.site/public/storage' => '/var/www/serdalo.site/storage/app/public',
+      '/var/www/serdalo.site/public/sites' => '/var/www/serdalo.site/storage/app/public/sites',
     ),
   ),
   'flare' => 
@@ -550,7 +569,7 @@
     'driver' => 'bcrypt',
     'bcrypt' => 
     array (
-      'rounds' => 10,
+      'rounds' => '12',
     ),
     'argon' => 
     array (
@@ -582,7 +601,7 @@
   array (
     'ffmpeg' => 
     array (
-      'binaries' => '/usr/local/bin/ffmpeg',
+      'binaries' => 'ffmpeg',
       'threads' => 12,
     ),
     'ffprobe' => 
@@ -612,13 +631,13 @@
       'single' => 
       array (
         'driver' => 'single',
-        'path' => '/media/www/serdalo.site/storage/logs/laravel.log',
+        'path' => '/var/www/serdalo.site/storage/logs/laravel.log',
         'level' => 'debug',
       ),
       'daily' => 
       array (
         'driver' => 'daily',
-        'path' => '/media/www/serdalo.site/storage/logs/laravel.log',
+        'path' => '/var/www/serdalo.site/storage/logs/laravel.log',
         'level' => 'debug',
         'days' => 14,
       ),
@@ -669,20 +688,20 @@
       ),
       'emergency' => 
       array (
-        'path' => '/media/www/serdalo.site/storage/logs/laravel.log',
+        'path' => '/var/www/serdalo.site/storage/logs/laravel.log',
       ),
     ),
   ),
   'mail' => 
   array (
-    'default' => 'smtp',
+    'default' => 'log',
     'mailers' => 
     array (
       'smtp' => 
       array (
         'transport' => 'smtp',
-        'host' => 'mailhog',
-        'port' => '1025',
+        'host' => '127.0.0.1',
+        'port' => '2525',
         'encryption' => NULL,
         'username' => NULL,
         'password' => NULL,
@@ -727,15 +746,15 @@
     ),
     'from' => 
     array (
-      'address' => NULL,
-      'name' => 'news',
+      'address' => 'hello@example.com',
+      'name' => 'Laravel',
     ),
     'markdown' => 
     array (
       'theme' => 'default',
       'paths' => 
       array (
-        0 => '/media/www/serdalo.site/resources/views/vendor/mail',
+        0 => '/var/www/serdalo.site/resources/views/vendor/mail',
       ),
     ),
   ),
@@ -865,7 +884,7 @@
   ),
   'queue' => 
   array (
-    'default' => 'sync',
+    'default' => 'database',
     'connections' => 
     array (
       'sync' => 
@@ -960,11 +979,11 @@
   ),
   'session' => 
   array (
-    'driver' => 'file',
+    'driver' => 'database',
     'lifetime' => '120',
     'expire_on_close' => false,
     'encrypt' => false,
-    'files' => '/media/www/serdalo.site/storage/framework/sessions',
+    'files' => '/var/www/serdalo.site/storage/framework/sessions',
     'connection' => NULL,
     'table' => 'sessions',
     'store' => NULL,
@@ -973,7 +992,7 @@
       0 => 2,
       1 => 100,
     ),
-    'cookie' => 'news_session',
+    'cookie' => 'laravel_session',
     'path' => '/',
     'domain' => NULL,
     'secure' => NULL,
@@ -1002,9 +1021,9 @@
   array (
     'paths' => 
     array (
-      0 => '/media/www/serdalo.site/resources/views',
+      0 => '/var/www/serdalo.site/resources/views',
     ),
-    'compiled' => '/media/www/serdalo.site/storage/framework/views',
+    'compiled' => '/var/www/serdalo.site/storage/framework/views',
   ),
   'passport' => 
   array (
@@ -1021,22 +1040,6 @@
       'database' => 
       array (
         'connection' => 'mysql',
-      ),
-    ),
-  ),
-  'feed' => 
-  array (
-    'feeds' => 
-    array (
-      'main' => 
-      array (
-        'items' => '',
-        'url' => '',
-        'title' => 'My feed',
-        'description' => 'The description of the feed.',
-        'language' => 'en-US',
-        'view' => 'feed::atom',
-        'type' => 'application/atom+xml',
       ),
     ),
   ),

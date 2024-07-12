@@ -34,19 +34,18 @@
     30 => 'Laravel\\Sanctum\\SanctumServiceProvider',
     31 => 'Laravel\\Tinker\\TinkerServiceProvider',
     32 => 'Laravel\\Ui\\UiServiceProvider',
-    33 => 'MadWeb\\Robots\\RobotsServiceProvider',
-    34 => 'Carbon\\Laravel\\ServiceProvider',
-    35 => 'NunoMaduro\\Collision\\Adapters\\Laravel\\CollisionServiceProvider',
-    36 => 'ProtoneMedia\\LaravelFFMpeg\\Support\\ServiceProvider',
-    37 => 'Spatie\\Feed\\FeedServiceProvider',
+    33 => 'Carbon\\Laravel\\ServiceProvider',
+    34 => 'NunoMaduro\\Collision\\Adapters\\Laravel\\CollisionServiceProvider',
+    35 => 'ProtoneMedia\\LaravelFFMpeg\\Support\\ServiceProvider',
+    36 => 'Spatie\\Feed\\FeedServiceProvider',
+    37 => 'Spatie\\Permission\\PermissionServiceProvider',
     38 => 'Spatie\\Permission\\PermissionServiceProvider',
-    39 => 'Spatie\\Permission\\PermissionServiceProvider',
-    40 => 'ProtoneMedia\\LaravelFFMpeg\\Support\\ServiceProvider',
-    41 => 'Barryvdh\\Debugbar\\ServiceProvider',
-    42 => 'App\\Providers\\AppServiceProvider',
-    43 => 'App\\Providers\\AuthServiceProvider',
-    44 => 'App\\Providers\\EventServiceProvider',
-    45 => 'App\\Providers\\RouteServiceProvider',
+    39 => 'ProtoneMedia\\LaravelFFMpeg\\Support\\ServiceProvider',
+    40 => 'Barryvdh\\Debugbar\\ServiceProvider',
+    41 => 'App\\Providers\\AppServiceProvider',
+    42 => 'App\\Providers\\AuthServiceProvider',
+    43 => 'App\\Providers\\EventServiceProvider',
+    44 => 'App\\Providers\\RouteServiceProvider',
   ),
   'eager' => 
   array (
@@ -207,8 +206,6 @@
     'Laravel\\Sail\\Console\\InstallCommand' => 'Laravel\\Sail\\SailServiceProvider',
     'Laravel\\Sail\\Console\\PublishCommand' => 'Laravel\\Sail\\SailServiceProvider',
     'command.tinker' => 'Laravel\\Tinker\\TinkerServiceProvider',
-    'MadWeb\\Robots\\Robots' => 'MadWeb\\Robots\\RobotsServiceProvider',
-    'robots' => 'MadWeb\\Robots\\RobotsServiceProvider',
   ),
   'when' => 
   array (
@@ -252,9 +249,6 @@
     array (
     ),
     'Laravel\\Tinker\\TinkerServiceProvider' => 
-    array (
-    ),
-    'MadWeb\\Robots\\RobotsServiceProvider' => 
     array (
     ),
   ),

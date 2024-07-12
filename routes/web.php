@@ -21,6 +21,7 @@ use App\Http\Controllers\Frontend\VersionController as FrontendVersionController
 use App\Http\Controllers\Frontend\SubscribeController as FrontendSubscribeController;
 use App\Http\Controllers\Frontend\VideoStudioController as FrontendVideoStudioController;
 use App\Http\Controllers\Frontend\PhotoReportageController as PhotoReportageController;
+use App\Http\Controllers\RssController as RssController;
 use App\Http\Controllers\Frontend\VideoReportageController as VideoReportageController;
 /*
 |--------------------------------------------------------------------------
@@ -34,6 +35,7 @@ use App\Http\Controllers\Frontend\VideoReportageController as VideoReportageCont
 */
 
 
+Route::feeds();
 Route::get('/testart', function() {
     Artisan::call('cache:clear');
 });
@@ -46,7 +48,10 @@ Route::get('/routes', function() {
 });
 
 Route::get('yandex-news.xml', [FrontendHomeController::class, 'generateYandexNews'])->name('yandex_news');
+Route::get('/rss.xml', [RssController::class, 'generateRss']);
+
 Route::get('generate-yml', [FrontendHomeController::class, 'generateYml']);
+
 
 // In routes/web.php
 
