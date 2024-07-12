@@ -30,7 +30,9 @@ class Post extends Model
         'published_at',
         'category_id',
         'author_id',
+        'expert_id',
         'subtitle',
+        'comment',
         'thumb_id',
         'file_id',
         'tags_old',
@@ -88,7 +90,7 @@ class Post extends Model
 
     public function scopeMinimalSelect($query)
     {
-        $query->select(['id', 'slug', 'status', 'promote', 'promote_with_file', 'sticky', 'title', 'file_id', 'thumb_id', 'published_at']);
+        $query->select(['id', 'slug', 'status', 'promote', 'promote_with_file', 'sticky', 'title', 'comment', 'file_id', 'thumb_id', 'expert_id', 'published_at']);
     }
 
     public function translation()
@@ -116,8 +118,13 @@ class Post extends Model
         return $this->hasOne(Author::class, 'id', 'author_id');
     }
 
+    public function expert()
+    {
+        return $this->hasOne(Expert::class, 'id', 'expert_id');
+    }
+
     public function category()
     {
     	return $this->belongsTo(Category::class, 'category_id');
-    } 
+    }
 }

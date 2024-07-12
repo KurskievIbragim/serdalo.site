@@ -8,7 +8,7 @@
     @elseif (Route::is('posts.index'))
        Новости Ингушетии -  Газета "Сердало"
     @elseif (Route::is('materials.index'))
-       Новости Ингушетии -  Газета "Сердало" 
+       Новости Ингушетии -  Газета "Сердало"
     @elseif (Route::is('post-single'))
         @isset($post)
             {{ $post->title }} — все новости Ингушетии в Газете "Сердало"
@@ -1126,6 +1126,48 @@
                     height: 110px;
                 }
             }
+
+            .post-expert-section  {
+                border-bottom: 1px solid #000000;
+                border-top: 1px solid #000000;
+                padding: 25px;
+                margin-bottom: 25px;
+            }
+
+
+            .expert-img {
+                width: 95px;
+                height: 135px;
+            }
+
+            .expert-img img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            .expert-info p:first-child{
+                font-size: 20px;
+                font-weight: 600;
+            }
+
+            .expert-info p:last-child {
+                font-size: 14px;
+                font-weight: 400 ;
+            }
+
+            .comment-body {
+                padding-left: 45px;
+            }
+
+            .comment {
+                margin-top: 15px;
+            }
+
+            .comment p {
+                max-width: 600px;
+            }
+
         </style>
 	<script async src="https://cdn.ampproject.org/v0.js"></script>
     </head>
