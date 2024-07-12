@@ -1128,16 +1128,16 @@
             }
 
             .post-expert-section  {
-                border-bottom: 1px solid #000000;
-                border-top: 1px solid #000000;
+                border-bottom: 1px solid #E9E9E9;
+                border-top: 1px solid #E9E9E9;
                 padding: 25px;
                 margin-bottom: 25px;
             }
 
 
             .expert-img {
-                width: 95px;
-                height: 135px;
+                width: 110px;
+                height: 145px;
             }
 
             .expert-img img {
@@ -1154,6 +1154,7 @@
             .expert-info p:last-child {
                 font-size: 14px;
                 font-weight: 400 ;
+		color: #bababa;
             }
 
             .comment-body {
