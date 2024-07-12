@@ -1136,8 +1136,8 @@
 
 
             .expert-img {
-                width: 95px;
-                height: 135px;
+                width: 115px;
+                height: 155px;
             }
 
             .expert-img img {
