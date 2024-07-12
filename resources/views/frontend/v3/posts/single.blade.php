@@ -50,7 +50,7 @@
                         </div>
                     @else
                         <div class="">
-                            <img class="cm-aspect-4/3 lg:aspect-auto object-cover" src="{{ $post->file->full_preview_path }}" alt="">
+                            <img class="cm-aspect-4/3 lg:aspect-auto object-cover" src="{{ $post->file->full_preview_path }}" alt="{{$post->title}}">
                         </div>
                         @if(isset($post->photo_title))
                             <div class="flex flex-row mt-4 justify-between">
@@ -66,10 +66,37 @@
                         <div class="">
                             <p class="mb-10 text-base font-semibold">{{ $post->lead }}</p>
                         </div>
+
+                        @if(!empty($post->comment))
+                            <div class="post-expert-section flex ">
+                                @if($post->expert && $post->expert->file)
+                                    <div class="expert-img">
+                                        <img src="{{ $post->expert->file->full_preview_path }}" alt="">
+                                    </div>
+                                @endif
+
+                                <div class="comment-body">
+
+                                    @if($post->expert)
+                                        <div class="expert-info">
+                                            <p>{{$post->expert->title}}</p>
+                                            <p>{!! $post->expert->description !!}</p>
+                                        </div>
+                                    @endif
+
+                                        <div class="comment">
+                                            <p>«Секретарь местного отделения партии «Единая Россия» в Малгобекском районе Корейш Гулиев совместно с депутатом районного Совета депутатов Магомедом Точиевым и исполнительным секретарем местного отделения партии Умаром Гатагажевым провели мониторинг организации горячего питания для учащихся младших классов школы № 30 в сельском поселении Сагопши», — отмечается в представленной информации”.</p>
+                                        </div>
+                                </div>
+                            </div>
+                        @endif
+
+
                         <div class="cm-single-description text-base	">
                             {!! $post->description !!}
                         </div>
                     </div>
+
 
         </div>
     </div>

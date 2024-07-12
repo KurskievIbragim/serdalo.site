@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\v1\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Expert;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -83,6 +84,7 @@ class PostsController extends Controller
         return response()->json([
             'tags' => Tag::get(['id', 'title']),
             'authors' => Author::get(['id', 'title']),
+            'experts' => Expert::get(['id', 'title']),
         ]);
     }
     public function store(Request $request)
@@ -102,9 +104,11 @@ class PostsController extends Controller
             ],
             'lead' => ['required'],
             'description' => ['required'],
+            'comment' => ['required'],
             'post_tags' => ['nullable'],
             'post_tags.*' => ['nullable', 'exists:tags,id'],
             'author_id' => ['required', 'exists:authors,id'],
+            'expert_id' => ['required', 'exists:experts,id'],
             'file_id' => ['nullable', 'exists:files,id'],
             'photo_title' => ['nullable'],
             'published_at' => ['required'],
@@ -133,7 +137,9 @@ class PostsController extends Controller
         $post->promote_with_file = (int)(bool)$request->promote_with_file;
         $post->user_id = Auth::user()->id;
         $post->author_id = $request->author_id;
+        $post->expert_id = $request->expert_id;
         $post->title = $request->title;
+        $post->comment = $request->comment;
         $post->file_id = $request->file_id;
         $post->thumb_id = $request->thumb_id;
         $post->lead = $request->lead;
@@ -165,9 +171,11 @@ class PostsController extends Controller
             'post_tags' => $post->post_tags->pluck('tag_id'),
             'tags' => Tag::get(['id', 'title']),
             'authors' => Author::get(['id', 'title']),
+            'experts' => Expert::get(['id', 'title']),
             'files' => ($post_file) ? [$post_file] : [],
             'thumb' => $post->thumb,
             'published_at' => $post->published_at,
+            'comment' => $post->comment,
             'photo_title' => $post->photo_title,
             'photo_description' => $post->photo_description,
         ]);
@@ -191,10 +199,12 @@ class PostsController extends Controller
             ],
             'lead' => ['required'],
             'description' => ['required'],
+            'comment' => ['required'],
             'photo_description' => ['nullable'],
             'post_tags' => ['nullable'],
             'post_tags.*' => ['nullable', 'exists:tags,id'],
             'author_id' => ['required', 'exists:authors,id'],
+            'expert_id' => ['required', 'exists:experts,id'],
             'file_id' => ['nullable', 'exists:files,id'],
             'published_at' => ['required'],
         ]);
@@ -219,7 +229,9 @@ class PostsController extends Controller
         $post->promote_with_file = (int)(bool)$request->promote_with_file;
         //$post->user_id = Auth::user()->id;
         $post->author_id = $request->author_id;
+        $post->expert_id = $request->expert_id;
         $post->title = $request->title;
+        $post->comment = $request->comment;
         $post->photo_title = $request->photo_title;
         $post->file_id = $request->file_id;
         $post->thumb_id = $request->thumb_id;

@@ -83,6 +83,19 @@
                                 </select>
                                 <div v-if="errors.author_id" class="text-red-400">{{ errors.author_id | displayError }}</div>
                             </div>
+
+
+                            <div>
+                                <textarea-input class="h-96"  v-model="form.comment" :error="errors.comment" id="lead" rows="10" label="Комментарий эксперта" />
+                                <div class="pb-4 w-full">
+                                    <label class="mb-2 block">Выберите экспрета:</label>
+                                    <select v-model="form.expert_id" :class="{ 'input-error': errors.expert_id }" label="Experts" class="block w-full p-2 border rounded border-gray-400">
+                                        <option :value="null" />
+                                        <option v-for="expert in experts" :key="expert.id" :value="expert.id">{{ expert.title }}</option>
+                                    </select>
+                                    <div v-if="errors.expert_id" class="text-red-400">{{ errors.expert_id | displayError }}</div>
+                                </div>
+                            </div>
                             <button-primary type="submit" :isLoading="isStoreloading">Сохранить</button-primary>
                         </div>
                     </form>
@@ -130,8 +143,10 @@
                 promote_with_file: 0,
                 lead: null,
                 description: null,
+                comment: null,
                 post_tags: [],
                 author_id: null,
+                expert_id: null,
                 file_id: null,
                 thumb_id: null,
                 published_at: null,
@@ -162,6 +177,7 @@
                 .then(res => {
                     this.tags = res.data.tags
                     this.authors = res.data.authors
+                    this.experts = res.data.experts
                 })
                 .catch(err => {
                     if(err.response.data.error) {

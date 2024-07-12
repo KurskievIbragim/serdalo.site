@@ -59,22 +59,21 @@ class PostController extends Controller
 
         $categories = Category::all();
 
-        $post = Post
-        ::with(['file', 'thumb', 'author', 'tags'])
-        ->where('slug', $slug)
-        ->when(!$this->is_default_locale, function($query) {
-            $query->with('translation');//->whereHas('translation');
-        })
-        ->firstOrFail();
+        $post = Post::with(['file', 'thumb', 'author', 'tags', 'expert'])
+            ->where('slug', $slug)
+            ->when(!$this->is_default_locale, function($query) {
+                $query->with('translation');
+            })
+            ->firstOrFail();
 
         $posts_main = Post::query()
-        ->with(['file', 'thumb'])
-        ->when(!$this->is_default_locale, function($query) {
-            $query->with('translation')->whereHas('translation');
-        })
-        ->orderBy('published_at', 'desc')
-        ->take(14)
-        ->get();
+            ->with(['file', 'thumb'])
+            ->when(!$this->is_default_locale, function($query) {
+                $query->with('translation')->whereHas('translation');
+            })
+            ->orderBy('published_at', 'desc')
+            ->take(14)
+            ->get();
 
         if(session('frontend_version') != 'v1') {
             $view = 'frontend.v3.posts.single';
@@ -89,20 +88,11 @@ class PostController extends Controller
             $tagTitle = $this->is_default_locale ? __('All Categories') : __('Статьи');
         }
 
-
-
-
-
-
-
-
-
         return view($view, [
             'categories' => $categories,
             'post' => $post,
             'posts_main' => $posts_main,
             'tagTitle' => $tagTitle,
-
         ]);
     }
 
@@ -126,7 +116,7 @@ class PostController extends Controller
         return view('frontend.v3.posts.posts-by-tag', compact('posts', 'categories', 'tagTitle'));
     }
 
-    
+
 }
 
 
