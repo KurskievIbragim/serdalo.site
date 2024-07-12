@@ -26,6 +26,9 @@
                             <router-link to="/admin/authors" class="nav-link">Авторы</router-link>
                         </li>
                         <li class="py-2 px-2">
+                            <router-link to="/admin/experts" class="nav-link">Эксперты</router-link>
+                        </li>
+                        <li class="py-2 px-2">
                             <router-link to="/admin/newspapers" class="nav-link">Выпуски газет</router-link>
                         </li>
                         <li class="py-2 px-2">

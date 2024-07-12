@@ -48,6 +48,10 @@ import AdminAuthorsEdit from '@/pages/Admin/Authors/Edit';
 import AdminAuthorsTranslationsCreate from '@/pages/Admin/AuthorsTranslations/Create';
 import AdminAuthorsTranslationsEdit from '@/pages/Admin/AuthorsTranslations/Edit';
 
+import AdminExpertsIndex from '@/pages/Admin/Experts/Index';
+import AdminExpertsCreate from '@/pages/Admin/Experts/Create';
+import AdminExpertsEdit from '@/pages/Admin/Experts/Edit';
+
 import AdminFilesIndex from '@/pages/Admin/Files/Index';
 
 import AdminUsersIndex from '@/pages/Admin/Users/Index';
@@ -125,6 +129,12 @@ const routes = [
     {name: 'admin-authors-edit', path: '/admin/authors/:id/edit', component: AdminAuthorsEdit, meta: {layout: 'admin-default', auth: true}},
     {name: 'admin-authors_translations-create', path: '/admin/authors/:author_id/authors_translations/create', component: AdminAuthorsTranslationsCreate, meta: {layout: 'admin-default', auth: true}},
     {name: 'admin-authors_translations-edit', path: '/admin/authors/authors_translations/:id/edit', component: AdminAuthorsTranslationsEdit, meta: {layout: 'admin-default', auth: true}},
+
+
+    {name: 'admin-experts-index', path: '/admin/experts/', component: AdminExpertsIndex, meta: {layout: 'admin-default', auth: true, role: 'test'}},
+    {name: 'admin-experts-create', path: '/admin/experts/create', component: AdminExpertsCreate, meta: {layout: 'admin-default', auth: true, permisson: 'test'}},
+    {name: 'admin-experts-edit', path: '/admin/experts/:id/edit', component: AdminExpertsEdit, meta: {layout: 'admin-default', auth: true}},
+
 
     {name: 'admin-files-index', path: '/admin/files', component: AdminFilesIndex, meta: {layout: 'admin-default', auth: true}},
 
