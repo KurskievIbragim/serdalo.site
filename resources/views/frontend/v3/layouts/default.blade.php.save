@@ -1125,20 +1125,7 @@
                     display: none;
                     height: 110px;
                 }
-		.post-expert-section {
-		    flex-direction: column;
-			aligh-items: center;
-			justify-content: center;
-		}
-		.expert-img {
-			min-width: unset;
-			width: 120px;
-			
-		}
-		.comment-body {
-			margin-top: 10px;
-			padding-left: unset !important;
-		}
+		.
             }
 
             .post-expert-section  {
