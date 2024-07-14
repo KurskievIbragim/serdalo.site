@@ -2,7 +2,6 @@
 
 @section('content')
     <div class="game-page">
-        <h2 class="text-2xl font-bold mb-4 swift-up-text">Игра "Слова из слова"</h2>
         <div class="bg-white p-6 rounded-lg shadow-lg text-center">
             <div id="main-word-container" class="mb-4">
                 <span id="main-word" class="text-xl font-semibold">Загрузка...</span>

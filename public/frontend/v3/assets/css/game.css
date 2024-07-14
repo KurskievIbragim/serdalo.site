@@ -19,6 +19,12 @@
     padding: 5px;
     border: 1px dashed #006633;
     min-width: 50px;
+    margin-right: 20px;
+}
+
+#congrats-message {
+    font-size: 20px;
+    padding: 25px;
 }
 
 #main-word {
