@@ -41,6 +41,8 @@
         <meta name="description" content="{{ isset($post) ? $post->lead : (isset($material) ? $material->lead : 'Общенациональная газета «Сердало» - главное печатное издание Республики Ингушетия, предоставляющее читателям наиболее полную, оперативную, надежную и объективную информацию.') }}">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+        <link rel="stylesheet" href="{{asset('frontend/v3/assets/css/game.css')}}">
+
         <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('frontend/v3/assets/media/base-v2/favicon-32x32.png') }}">
         <script src="https://cdn.tailwindcss.com"></script>
         <style type="text/tailwindcss">
@@ -1133,7 +1135,7 @@
 		.expert-img {
 			min-width: unset;
 			width: 120px;
-			
+
 		}
 		.comment-body {
 			margin-top: 10px;
@@ -1405,6 +1407,14 @@
                                             {{ __('Публицистика') }}
                                         </a>
                                     </li>
+
+                                    @if(auth())
+                                        <li class="mb-1.5">
+                                            <a href="{{route('games')}}">
+                                                Игровой раздел
+                                            </a>
+                                        </li>
+                                    @endif
                                 </ul>
                             </nav>
                         </div>
@@ -1470,6 +1480,7 @@
 
         <div id="topNubex"><img src="{{asset('images/uparrowbutton_87886.svg')}}" width="30px" height="30px" /></div>
     </body>
+    <script src="{{asset('frontend/v3/assets/js/game.js')}}"></script>
     <script
         src="https://code.jquery.com/jquery-3.7.0.min.js"
         integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="

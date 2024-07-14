@@ -80,6 +80,8 @@ Route::group(['prefix' => App\Http\Middleware\Language::getLanguage()], function
 
     Route::get('/', [FrontendHomeController::class, 'index'])->name('home');
     Route::get('/litsalon', [FrontendHomeController::class, 'litsalon'])->name('litsalon');
+    Route::get('/game', [\App\Http\Controllers\Frontend\GameController::class, 'index'])->name('game');
+    Route::get('/games', [\App\Http\Controllers\Frontend\GameController::class, 'allGames'])->name('games');
     Route::get('/dictionary', [FrontendDictionaryController::class, 'index'])->name('dictionary');
     Route::get('/materials/{category_id?}', [FrontendMaterialController::class, 'index'])->name('materials-index');
     Route::get('/material/{slug}', [FrontendMaterialController::class, 'single'])->name('material-single');
