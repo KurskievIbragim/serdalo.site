@@ -26,8 +26,8 @@
                             <div class="flex flex-col justify-end w-full min-h-1/2 p-5 color-1 cm-bd-gradient-1">
                                 <a href="{{ route('material-single', $material_sticky->slug) }}"
                                    class="mb-2.5 text-3xl sm:text-lg md:text-2xl lg:text-3xl pointer-events-auto">{{ $material_sticky->subtitle_short }}</a>
-                                <h3
-                                    class="cm-article-subtitle pointer-events-auto">{{ $material_sticky->title_short }}</h3>
+                                <span
+                                    class="cm-article-subtitle pointer-events-auto">{{ $material_sticky->title_short }}</span>
                             </div>
                         </div>
                     </div>
@@ -67,8 +67,8 @@
                                         class="flex flex-col justify-end w-full min-h-1/2 p-5 color-1 cm-bd-gradient-1">
                                         <a href="{{ route('material-single', $material_sticky->slug) }}"
                                            class="mb-2.5 text-base sm:text-3xl md:text-3xl lg:text-5xl pointer-events-auto">{{ $material_sticky->subtitle_short }}</a>
-                                        <h3
-                                            class="cm-article-subtitle pointer-events-auto">{{ $material_sticky->title_short }}</h3>
+                                        <span
+                                            class="cm-article-subtitle pointer-events-auto">{{ $material_sticky->title_short }}</span>
                                     </div>
                                 </div>
                             </div>
@@ -105,7 +105,7 @@
                         <div class="cm-section-2-item cm-section-videos col-span-1 flex flex-col">
                             <div class="mb-5">
                                 <span class="text-3xl font-black color-7">Видео</span>
-                            </div>
+                            </div>  
                             <div class="h-full grid grid-cols-1 sm:grid-cols-2 gap-5">
                                 @foreach($video_articles as $video_article)
                                     <div
@@ -144,7 +144,7 @@
                         <div class="cm-section-2-item cm-section-photos col-span-1 flex flex-col">
                             <div class="mb-5">
                                 <span class="text-3xl font-black color-7">Фото</span>
-                            </div>
+                            </div>  
                             <div class="h-full grid grid-cols-1 sm:grid-cols-2 gap-5">
 
                                 @foreach($photo_articles as $photo_article)
@@ -192,7 +192,7 @@
                 <div class="cm-section-2-item cm-section-videos col-span-2 flex flex-col">
                     <div class="mb-5">
                                 <span class="text-3xl font-black color-7">Видео</span>
-                            </div>
+                            </div>  
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
                         @foreach($video_articles as $video_article)
                             <div class="cm-section-videos-item col-span-1 flex flex-col bg-1 overflow-hidden">
@@ -220,7 +220,7 @@
                 <div class="cm-section-2-item cm-section-photos col-span-1 flex flex-col">
                 <div class="mb-5">
                                 <span class="text-3xl font-black color-7">Фото</span>
-                            </div>
+                            </div>  
                     <div class="grid grid-cols-1 gap-5">
                         @foreach($photo_articles as $photo_article)
 
@@ -252,7 +252,7 @@
         <div class="cm-section-3 py-5">
         <div class="mb-5">
                                 <span class="text-3xl font-black color-7">Публицистика</span>
-                            </div>
+                            </div>  
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5">
                 @foreach($journalism as $item)
                     <div
@@ -294,7 +294,7 @@
         <div class="cm-section-3 py-5">
         <div class="mb-5">
                                 <span class="text-3xl font-black color-7">Не пропустите</span>
-                            </div>
+                            </div>  
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5">
                 @foreach($materials_popular as $material_popular)
                     <div

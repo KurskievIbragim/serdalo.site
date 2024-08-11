@@ -1,4 +1,4 @@
-@extends('frontend.v3.layouts.game')
+@extends('frontend.v3.layouts.default')
 
 @section('content')
     <div class="games-head">

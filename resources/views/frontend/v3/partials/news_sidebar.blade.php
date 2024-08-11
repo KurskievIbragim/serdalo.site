@@ -32,9 +32,7 @@
                         <div class="absolute left-0 bottom-0 w-full h-full flex items-end pointer-events-none">
                             <div class="flex flex-col justify-end w-full min-h-1/2 p-2.5 color-1 cm-bd-gradient-1">
                                 <a href="{{ route('post-single', $post_main->slug) }}"
-                                   class="cm-article-subtitle pointer-events-auto"><h3>
-                                        {{ $post_main->title_short }}
-                                    </h3></a>
+                                   class="cm-article-subtitle pointer-events-auto">{{ $post_main->title_short }}</a>
                             </div>
                         </div>
 

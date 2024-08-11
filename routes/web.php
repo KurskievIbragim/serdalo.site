@@ -78,7 +78,7 @@ Route::group(['prefix' => App\Http\Middleware\Language::getLanguage()], function
         Route::post('/subscribe', [FrontendSubscribeController::class, 'store'])->name('subscribe-store');
     });
 
-    Route::get('/', [FrontendHomeController::class, 'index'])->name('home')->middleware('cache.control');
+    Route::get('/', [FrontendHomeController::class, 'index'])->name('home');
     Route::get('/litsalon', [FrontendHomeController::class, 'litsalon'])->name('litsalon');
     Route::get('/game', [\App\Http\Controllers\Frontend\GameController::class, 'index'])->name('game');
     Route::get('/games', [\App\Http\Controllers\Frontend\GameController::class, 'allGames'])->name('games');
