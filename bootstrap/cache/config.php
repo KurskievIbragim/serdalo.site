@@ -3,14 +3,14 @@
   array (
     'name' => 'Laravel',
     'env' => 'local',
-    'debug' => true,
-    'url' => 'http://localhost',
+    'debug' => false,
+    'url' => 'http://serdalo.ru',
     'asset_url' => NULL,
     'timezone' => 'Europe/Moscow',
     'locale' => 'ru',
     'fallback_locale' => 'en',
     'faker_locale' => 'ru_RU',
-    'key' => 'base64:od894O8m0FNenX9qcsAkOsDYYuptYWwXQPAyxEopNtQ=',
+    'key' => 'base64:vgoC2xWxawRXOg+DeOjDV0HVeF5N0apslmC+7yNboEk=',
     'cipher' => 'AES-256-CBC',
     'providers' => 
     array (
@@ -284,7 +284,7 @@
         'port' => '3306',
         'database' => 'serdalo',
         'username' => 'root',
-        'password' => 'Ap_17$Psa',
+        'password' => 'ndfhmsql1',
         'unix_socket' => '',
         'charset' => 'utf8mb4',
         'collation' => 'utf8mb4_unicode_ci',
@@ -324,7 +324,7 @@
         'port' => '3306',
         'database' => 'serdalo',
         'username' => 'root',
-        'password' => 'Ap_17$Psa',
+        'password' => 'ndfhmsql1',
         'charset' => 'utf8',
         'prefix' => '',
         'prefix_indexes' => true,
@@ -339,7 +339,7 @@
         'port' => '3306',
         'database' => 'serdalo',
         'username' => 'root',
-        'password' => 'Ap_17$Psa',
+        'password' => 'ndfhmsql1',
         'charset' => 'utf8',
         'prefix' => '',
         'prefix_indexes' => true,
@@ -511,14 +511,14 @@
       array (
         'driver' => 'local',
         'root' => '/var/www/serdalo.site/storage/app/public',
-        'url' => 'http://localhost/storage',
+        'url' => 'http://serdalo.ru/storage',
         'visibility' => 'public',
       ),
       'public-old' => 
       array (
         'driver' => 'local',
         'root' => '/var/www/serdalo.site/storage/app/public/sites',
-        'url' => 'http://localhost/',
+        'url' => 'http://serdalo.ru/',
         'visibility' => 'public',
       ),
       's3' => 
@@ -945,7 +945,7 @@
       2 => '127.0.0.1',
       3 => '127.0.0.1:8000',
       4 => '::1',
-      5 => 'localhost',
+      5 => 'serdalo.ru',
     ),
     'guard' => 
     array (
