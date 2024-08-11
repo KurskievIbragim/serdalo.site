@@ -17,7 +17,9 @@ class CacheControlMiddleware
     public function handle(Request $request, Closure $next)
     {
         $response = $next($request);
-        $response->headers->set('Cache-Control', 'max-age=31536000');
+        $response->headers->set('Cache-Control', 'public, max-age=31536000');
+
         return $response;
+
     }
 }

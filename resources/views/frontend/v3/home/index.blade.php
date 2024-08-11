@@ -25,9 +25,13 @@
                         <div class="absolute left-0 bottom-0 w-full h-full flex items-end pointer-events-none">
                             <div class="flex flex-col justify-end w-full min-h-1/2 p-5 color-1 cm-bd-gradient-1">
                                 <a href="{{ route('material-single', $material_sticky->slug) }}"
-                                   class="mb-2.5 text-3xl sm:text-lg md:text-2xl lg:text-3xl pointer-events-auto">{{ $material_sticky->subtitle_short }}</a>
-                                <span
-                                    class="cm-article-subtitle pointer-events-auto">{{ $material_sticky->title_short }}</span>
+                                   class="mb-2.5 text-3xl sm:text-lg md:text-2xl lg:text-3xl pointer-events-auto">
+                                    <h3>
+                                        {{ $material_sticky->subtitle_short }}
+                                    </h3>
+                                </a>
+                                <h3
+                                    class="cm-article-subtitle pointer-events-auto">{{ $material_sticky->title_short }}</h3>
                             </div>
                         </div>
                     </div>
@@ -66,9 +70,13 @@
                                     <div
                                         class="flex flex-col justify-end w-full min-h-1/2 p-5 color-1 cm-bd-gradient-1">
                                         <a href="{{ route('material-single', $material_sticky->slug) }}"
-                                           class="mb-2.5 text-base sm:text-3xl md:text-3xl lg:text-5xl pointer-events-auto">{{ $material_sticky->subtitle_short }}</a>
-                                        <span
-                                            class="cm-article-subtitle pointer-events-auto">{{ $material_sticky->title_short }}</span>
+                                           class="mb-2.5 text-base sm:text-3xl md:text-3xl lg:text-5xl pointer-events-auto">
+                                            <h3>
+                                                {{ $material_sticky->subtitle_short }}
+                                            </h3>
+                                        </a>
+                                        <h3
+                                            class="cm-article-subtitle pointer-events-auto">{{ $material_sticky->title_short }}</h3>
                                     </div>
                                 </div>
                             </div>
@@ -105,7 +113,7 @@
                         <div class="cm-section-2-item cm-section-videos col-span-1 flex flex-col">
                             <div class="mb-5">
                                 <span class="text-3xl font-black color-7">Видео</span>
-                            </div>  
+                            </div>
                             <div class="h-full grid grid-cols-1 sm:grid-cols-2 gap-5">
                                 @foreach($video_articles as $video_article)
                                     <div
@@ -118,7 +126,11 @@
                                         ])
                                         <div class="flex flex-col h-full justify-between p-5">
                                             <a href="{{ route('post-single', $video_article->slug) }}"
-                                               class="cm-article-title">{{ $video_article->title_short }}</a>
+                                               class="cm-article-title">
+                                                <h3>
+                                                    {{ $video_article->title_short }}
+                                                </h3>
+                                            </a>
                                             @if(\Carbon\Carbon::parse($video_article->published_at)->isToday())
                                                 <span class="cm-article-date">
                                                     {{ \Carbon\Carbon::parse($video_article->published_at)->format('H:i')}}
@@ -144,7 +156,7 @@
                         <div class="cm-section-2-item cm-section-photos col-span-1 flex flex-col">
                             <div class="mb-5">
                                 <span class="text-3xl font-black color-7">Фото</span>
-                            </div>  
+                            </div>
                             <div class="h-full grid grid-cols-1 sm:grid-cols-2 gap-5">
 
                                 @foreach($photo_articles as $photo_article)
@@ -159,7 +171,11 @@
                                         ])
                                         <div class="flex flex-col h-full justify-between p-5">
                                             <a href="{{ route('reportage-single', $photo_article->id) }}"
-                                               class="cm-article-title">{{ $photo_article->title }}</a>
+                                               class="cm-article-title">
+                                                <h3>
+                                                    {{ $photo_article->title }}
+                                                </h3>
+                                            </a>
                                             @if(\Carbon\Carbon::parse($photo_article->published_at)->isToday())
                                                 <span class="cm-article-date">
                                                     {{ \Carbon\Carbon::parse($photo_article->published_at)->format('H:i')}}
@@ -192,7 +208,7 @@
                 <div class="cm-section-2-item cm-section-videos col-span-2 flex flex-col">
                     <div class="mb-5">
                                 <span class="text-3xl font-black color-7">Видео</span>
-                            </div>  
+                            </div>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
                         @foreach($video_articles as $video_article)
                             <div class="cm-section-videos-item col-span-1 flex flex-col bg-1 overflow-hidden">
@@ -204,7 +220,11 @@
                                 ])
                                 <div class="flex flex-col h-full justify-between p-5">
                                     <a href="{{ route('post-single', $video_article->slug) }}"
-                                       class="cm-article-title">{{ $video_article->title_short }}</a>
+                                       class="cm-article-title">
+                                        <h3>
+                                            {{ $video_article->title_short }}
+                                        </h3>
+                                    </a>
                                     <span class="cm-article-date">{{ $video_article->display_created_at }}</span>
                                 </div>
                             </div>
@@ -220,7 +240,7 @@
                 <div class="cm-section-2-item cm-section-photos col-span-1 flex flex-col">
                 <div class="mb-5">
                                 <span class="text-3xl font-black color-7">Фото</span>
-                            </div>  
+                            </div>
                     <div class="grid grid-cols-1 gap-5">
                         @foreach($photo_articles as $photo_article)
 
@@ -233,8 +253,11 @@
                                 ])
                                 <div class="flex flex-col h-full justify-between p-5">
                                     <a href="{{ route('reportage-single', $photo_article->id) }}"
-                                       class="cm-article-title">{{ $photo_article->title }}</a>
-{{--                                    <span class="cm-article-date">{{ $photo_article->published_at }}</span>--}}
+                                       class="cm-article-title">
+                                        <h3>
+                                            {{ $photo_article->title }}
+                                        </h3>
+                                    </a>
                                 </div>
                             </div>
                         @endforeach
@@ -252,7 +275,7 @@
         <div class="cm-section-3 py-5">
         <div class="mb-5">
                                 <span class="text-3xl font-black color-7">Публицистика</span>
-                            </div>  
+                            </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5">
                 @foreach($journalism as $item)
                     <div
@@ -272,8 +295,12 @@
                             @else
                                 <div class="flex flex-col mb-2.5">
                                     <a href="{{ route('journalism-single', $item->slug) }}"
-                                       class="cm-article-title">{{ $item->subtitle }}</a>
-                                    <span class="cm-article-subtitle">{{ $item->title }}</span>
+                                       class="cm-article-title">
+                                        <h3>
+                                            {{ $item->subtitle }}
+                                        </h3>
+                                    </a>
+                                    <h3 class="cm-article-subtitle">{{ $item->title }}</h3>
                                 </div>
                             @endif
                             <span class="cm-article-date">{{ \Carbon\Carbon::parse($item->published_at)->format('d.m.Y H:i')}}</span>
@@ -289,129 +316,9 @@
         </div>
     @endif
 
-    @if(count($materials_popular))
-        <!-- Не пропустите -->
-        <div class="cm-section-3 py-5">
-        <div class="mb-5">
-                                <span class="text-3xl font-black color-7">Не пропустите</span>
-                            </div>  
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5">
-                @foreach($materials_popular as $material_popular)
-                    <div
-                        class="cm-section-3-item anons-news col-span-1 row-span-2 flex flex-col h-full bg-1 overflow-hidden">
-                        @include('frontend.v3.partials.article_media', [
-                            'model' => $material_popular,
-                            'link' => route('material-single', $material_popular->slug),
-                            'classes' => 'flex-1 cm-aspect-16/9 xl:cm-aspect-4/3'
-                        ])
-                        <div class=" flex flex-col h-full justify-between p-5">
-                            <div class="flex flex-col mb-2.5">
-                                <a href="{{ route('material-single', $material_popular->slug) }}"
-                                   class="cm-article-title">{{ $material_popular->subtitle_short }}</a>
-                                <span class="cm-article-subtitle">{{ $material_popular->title_short }}</span>
-                            </div>
-                            <span class="cm-article-date">{{ $material_popular->display_created_at }}</span>
-                        </div>
-                    </div>
-                @endforeach
-            </div>
-        </div>
-    @endif
-
     @include('frontend.v3.partials.subscribe_lead_2')
 
-    <!-- Музей -->
-    <!--<div class="cm-section-4 py-5">-->
-    <!--    <div class="grid grid-cols-12 gap-5">-->
-    <!--        <div class="cm-section-4-item col-span-12 md:col-span-6 flex flex-col sm:flex-row md:flex-col lg:flex-row h-full bg-1">-->
-    <!--            <div class="basis-2/5 w-full h-full overflow-hidden">-->
-    <!--                <img class="flex-1 w-full cm-aspect-16/9 sm:cm-aspect-3/4 md:cm-aspect-16/9 lg:cm-aspect-3/4 object-cover" src="{{ asset('frontend/v3/assets/media/demo/1.jpg') }}">-->
-    <!--            </div>-->
-    <!--            <div class="basis-3/5 flex flex-col justify-between p-5">-->
-    <!--                <div class="flex flex-col mb-5">-->
-    <!--                    <a href="#" class="cm-article-title">news itemitemitem title 9</a>-->
-    <!--                    <span class="cm-article-subtitle">news itemitemitem short desc news itemitemitem short desc short desc ...</span>-->
-    <!--                </div>-->
-    <!--                <div class="">-->
-    <!--                    <span class="cm-article-date">17.06.2023</span>-->
-    <!--                </div>-->
-    <!--            </div>-->
-    <!--        </div>-->
-    <!--        <div class="cm-section-4-item col-span-12 md:col-span-6 flex flex-col sm:flex-row md:flex-col lg:flex-row h-full bg-1">-->
-    <!--            <div class="basis-2/5 w-full h-full overflow-hidden">-->
-    <!--                <img class="flex-1 w-full cm-aspect-16/9 sm:cm-aspect-3/4 md:cm-aspect-16/9 lg:cm-aspect-3/4 object-cover" src="{{ asset('frontend/v3/assets/media/demo/2.jpg') }}">-->
-    <!--            </div>-->
-    <!--            <div class="basis-3/5 flex flex-col justify-between p-5">-->
-    <!--                <div class="flex flex-col mb-5">-->
-    <!--                    <a href="#" class="cm-article-title">news itemitemitem title itemitemitem 9</a>-->
-    <!--                    <span class="cm-article-subtitle">news itemitemitem short desc news itemitemitem short desc short desc ...</span>-->
-    <!--                </div>-->
-    <!--                <div class="">-->
-    <!--                    <span class="cm-article-date">17.06.2023</span>-->
-    <!--                </div>-->
-    <!--            </div>-->
-    <!--        </div>-->
-    <!--    </div>-->
-    <!--</div>-->
-    <!-- Видеостудия "Сердало" -->
-    {{--@if(count($video_studio_section_articles))--}}
-    {{--<div class="cm-section-5 py-5">--}}
-    {{--    @include('frontend.v3.partials.page_title', [--}}
-    {{--        'title' => __('Видеостудия "Сердало"'),--}}
-    {{--    ])--}}
-    {{--    <div class="grid grid-cols-12 gap-5">--}}
-    {{--        @foreach($video_studio_section_articles as $video_studio_section_article)--}}
+    @include('frontend.v3.partials.museum')
 
-    {{--              <div class="cm-section-5-item video-article-none col-span-12 md:col-span-6 lg:col-span-4 flex flex-col bg-1">--}}
-    {{--                <a href="#" class="cm-article-title cursor-pointer">--}}
-    {{--                    @include('frontend.v3.partials.article_media', [--}}
-    {{--                        'model' => $video_studio_section_article,--}}
-    {{--                        'link' => '#',--}}
-    {{--                        'classes' => 'w-full aspect-video object-cover cursor-pointer'--}}
-    {{--                    ])--}}
-    {{--                </a>--}}
-    {{--                <div class="flex flex-col h-full justify-between p-5">--}}
-    {{--                    <div class="flex flex-col mb-5">--}}
-    {{--                        <a href="#" class="cm-article-title">{{ $video_studio_section_article->title }}</a>--}}
-    {{--                    </div>--}}
-    {{--                    <div class="">--}}
-    {{--                        <span class="cm-article-date">{{ $video_studio_section_article->display_created_at }}</span>--}}
-    {{--                    </div>--}}
-    {{--                </div>--}}
-    {{--              </div>--}}
-
-    {{--        @endforeach--}}
-    {{--    </div>--}}
-    {{--</div>--}}
-    {{--@endif--}}
-    <!-- Литературный салон -->
-    {{--@if(count($litsalon_section_articles))--}}
-    {{--<div class="cm-section-6 py-5">--}}
-    {{--    @include('frontend.v3.partials.page_title', [--}}
-    {{--        'title' => __('Литературный салон'),--}}
-    {{--    ])--}}
-    {{--    <div class="grid grid-cols-12 gap-5">--}}
-    {{--        @foreach($litsalon_section_articles as $litsalon_section_article)--}}
-    {{--            <div class="cm-section-6-item lit-home-item col-span-12 md:col-span-6 lg:col-span-4 flex flex-row h-full bg-1 overflow-hidden">--}}
-    {{--                <div class="basis-1/2 w-full h-full">--}}
-    {{--                    @include('frontend.v3.partials.article_media', [--}}
-    {{--                        'model' => $litsalon_section_article,--}}
-    {{--                        'link' => '#',--}}
-    {{--                        'classes' => ' w-full cm-aspect-2/4 object-cover'--}}
-    {{--                    ])--}}
-    {{--                </div>--}}
-    {{--                <div class="basis-1/2 flex flex-col justify-between bg-7 p-5">--}}
-    {{--                    <div class="flex flex-col">--}}
-    {{--                        <a href="{{route('litSingle', $litsalon_section_article->id)}}" class="mb-2.5 text-xl md:text-base xl:text-lg color-1 font-semibold">{{ $litsalon_section_article->title }}</a>--}}
-    {{--                    </div>--}}
-    {{--                    <div class="">--}}
-    {{--                        <span class="block mb-2.5 color-1">{{ $litsalon_section_article->subtitle }}</span>--}}
-    {{--                        <span class="cm-article-date color-5">{{ $litsalon_section_article->dates }}</span>--}}
-    {{--                    </div>--}}
-    {{--                </div>--}}
-    {{--            </div>--}}
-    {{--        @endforeach--}}
-    {{--    </div>--}}
-    {{--</div>--}}
-    {{--@endif--}}
+    @include('frontend.v3.partials.litsalon')
 @endsection

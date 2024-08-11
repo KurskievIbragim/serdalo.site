@@ -10,7 +10,7 @@
         <div class="cm-article-video-container w-full h-full {{ $container_classes }} relative js--open-video-modal" data-link="{{ $link ?? '' }}" data-title="{{ $model->title_short }}" data-src="{{ $model->file->full_path }}">
             <div class="w-full h-full {{ $classes }} {{ $no_img_bg }}">
                 @if($model->thumb)
-                    <img class="w-full h-full {{ $classes }} object-cover" src="{{ $model->thumb->full_path }}" alt="Новости Ингушетии: {{$model->title}}">
+                    <img class="w-full h-full {{ $classes }} object-cover" src="{{ $model->thumb->full_path }}" alt="{{$model->title}}">
                 @endif
             </div>
             <div class="absolute left-0 bottom-0 w-full h-full flex {{ $icon_align }} p-2.5 color-1 poiner-events-none">
@@ -22,9 +22,9 @@
     @else
         <div class="w-full h-full {{ $classes }}">
             @if($model->file->full_preview_path)
-                <img class="w-full h-full {{ $classes }} object-cover" src="{{ $model->file->full_preview_path }}" alt="Новости Ингушетии: {{$model->title}}">
+                <img class="w-full h-full {{ $classes }} object-cover" src="{{ $model->file->full_preview_path }}" alt="{{$model->title}}">
             @else
-                <img class="w-full h-full {{ $classes }} object-cover" src="{{ $model->file }}" alt="Новости Ингушетии: {{$model->title}}">
+                <img class="w-full h-full {{ $classes }} object-cover" src="{{ $model->file }}" alt="{{$model->title}}">
             @endif
         </div>
     @endif

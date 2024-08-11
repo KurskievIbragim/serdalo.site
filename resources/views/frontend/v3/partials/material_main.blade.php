@@ -10,10 +10,14 @@
         </div>
         <div class="basis-1/2 md:basis-1/2 lg:basis-1/2 flex-1 flex flex-col justify-between p-5">
             <div class="flex flex-col mb-3.5">
-                <a href="{{ route('material-single', $model->slug) }}" class="cm-article-title">{{ $model->subtitle_short }}</a>
-                <span class="cm-article-subtitle">{{ $model->title_short }}</span>
+                <a href="{{ route('material-single', $model->slug) }}" class="cm-article-title">
+                    <h3>
+                        {{ $model->subtitle_short }}
+                    </h3>
+                </a>
+                <h3 class="cm-article-subtitle">{{ $model->title_short }}</h3>
             </div>
-            
+
             <div class="">
                 @if(\Carbon\Carbon::parse($model->published_at)->isToday())
                     <span class="cm-article-date">{{ \Carbon\Carbon::parse($model->published_at)->format('H:i')}}</span>
@@ -27,8 +31,8 @@
     <div class="{{ ($show_mobile) ? 'block' : 'hidden xl:block' }} w-full col-span-2 xl:col-span-1 row-span-1">
         <div class="flex flex-col h-full justify-between bg-1 p-5">
             <div class="flex flex-col mb-3.5">
-                <a href="{{ route('material-single', $model->slug) }}" class="cm-article-title">{{ $model->subtitle_short }}</a>
-                <span class="cm-article-subtitle">{{ $model->title_short }}</span>
+                <h3 href="{{ route('material-single', $model->slug) }}" class="cm-article-title">{{ $model->subtitle_short }}</h3>
+                <h3 class="cm-article-subtitle">{{ $model->title_short }}</h3>
             </div>
             <div class="">
                 <span class="cm-article-date">{{ \Carbon\Carbon::parse($model->published_at)->format('d.m.Y H:i')}}</span>

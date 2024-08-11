@@ -3,14 +3,14 @@
   array (
     'name' => 'Laravel',
     'env' => 'local',
-    'debug' => false,
-    'url' => 'http://serdalo.ru',
+    'debug' => true,
+    'url' => 'http://localhost',
     'asset_url' => NULL,
     'timezone' => 'Europe/Moscow',
     'locale' => 'ru',
     'fallback_locale' => 'en',
     'faker_locale' => 'ru_RU',
-    'key' => 'base64:vgoC2xWxawRXOg+DeOjDV0HVeF5N0apslmC+7yNboEk=',
+    'key' => 'base64:od894O8m0FNenX9qcsAkOsDYYuptYWwXQPAyxEopNtQ=',
     'cipher' => 'AES-256-CBC',
     'providers' => 
     array (
@@ -189,7 +189,7 @@
       'file' => 
       array (
         'driver' => 'file',
-        'path' => '/var/www/serdalo.site/storage/framework/cache/data',
+        'path' => '/home/comrade/PhpstormProjects/serdalo.site/storage/framework/cache/data',
       ),
       'memcached' => 
       array (
@@ -284,7 +284,7 @@
         'port' => '3306',
         'database' => 'serdalo',
         'username' => 'root',
-        'password' => 'ndfhmsql1',
+        'password' => 'Ap_17$Psa',
         'unix_socket' => '',
         'charset' => 'utf8mb4',
         'collation' => 'utf8mb4_unicode_ci',
@@ -324,7 +324,7 @@
         'port' => '3306',
         'database' => 'serdalo',
         'username' => 'root',
-        'password' => 'ndfhmsql1',
+        'password' => 'Ap_17$Psa',
         'charset' => 'utf8',
         'prefix' => '',
         'prefix_indexes' => true,
@@ -339,7 +339,7 @@
         'port' => '3306',
         'database' => 'serdalo',
         'username' => 'root',
-        'password' => 'ndfhmsql1',
+        'password' => 'Ap_17$Psa',
         'charset' => 'utf8',
         'prefix' => '',
         'prefix_indexes' => true,
@@ -384,7 +384,7 @@
     array (
       'enabled' => true,
       'driver' => 'file',
-      'path' => '/var/www/serdalo.site/storage/debugbar',
+      'path' => '/home/comrade/PhpstormProjects/serdalo.site/storage/debugbar',
       'connection' => NULL,
       'provider' => '',
       'hostname' => '127.0.0.1',
@@ -505,20 +505,20 @@
       'local' => 
       array (
         'driver' => 'local',
-        'root' => '/var/www/serdalo.site/storage/app',
+        'root' => '/home/comrade/PhpstormProjects/serdalo.site/storage/app',
       ),
       'public' => 
       array (
         'driver' => 'local',
-        'root' => '/var/www/serdalo.site/storage/app/public',
-        'url' => 'http://serdalo.ru/storage',
+        'root' => '/home/comrade/PhpstormProjects/serdalo.site/storage/app/public',
+        'url' => 'http://localhost/storage',
         'visibility' => 'public',
       ),
       'public-old' => 
       array (
         'driver' => 'local',
-        'root' => '/var/www/serdalo.site/storage/app/public/sites',
-        'url' => 'http://serdalo.ru/',
+        'root' => '/home/comrade/PhpstormProjects/serdalo.site/storage/app/public/sites',
+        'url' => 'http://localhost/',
         'visibility' => 'public',
       ),
       's3' => 
@@ -535,8 +535,8 @@
     ),
     'links' => 
     array (
-      '/var/www/serdalo.site/public/storage' => '/var/www/serdalo.site/storage/app/public',
-      '/var/www/serdalo.site/public/sites' => '/var/www/serdalo.site/storage/app/public/sites',
+      '/home/comrade/PhpstormProjects/serdalo.site/public/storage' => '/home/comrade/PhpstormProjects/serdalo.site/storage/app/public',
+      '/home/comrade/PhpstormProjects/serdalo.site/public/sites' => '/home/comrade/PhpstormProjects/serdalo.site/storage/app/public/sites',
     ),
   ),
   'flare' => 
@@ -631,13 +631,13 @@
       'single' => 
       array (
         'driver' => 'single',
-        'path' => '/var/www/serdalo.site/storage/logs/laravel.log',
+        'path' => '/home/comrade/PhpstormProjects/serdalo.site/storage/logs/laravel.log',
         'level' => 'debug',
       ),
       'daily' => 
       array (
         'driver' => 'daily',
-        'path' => '/var/www/serdalo.site/storage/logs/laravel.log',
+        'path' => '/home/comrade/PhpstormProjects/serdalo.site/storage/logs/laravel.log',
         'level' => 'debug',
         'days' => 14,
       ),
@@ -688,7 +688,7 @@
       ),
       'emergency' => 
       array (
-        'path' => '/var/www/serdalo.site/storage/logs/laravel.log',
+        'path' => '/home/comrade/PhpstormProjects/serdalo.site/storage/logs/laravel.log',
       ),
     ),
   ),
@@ -754,7 +754,7 @@
       'theme' => 'default',
       'paths' => 
       array (
-        0 => '/var/www/serdalo.site/resources/views/vendor/mail',
+        0 => '/home/comrade/PhpstormProjects/serdalo.site/resources/views/vendor/mail',
       ),
     ),
   ),
@@ -945,7 +945,7 @@
       2 => '127.0.0.1',
       3 => '127.0.0.1:8000',
       4 => '::1',
-      5 => 'serdalo.ru',
+      5 => 'localhost',
     ),
     'guard' => 
     array (
@@ -983,7 +983,7 @@
     'lifetime' => '120',
     'expire_on_close' => false,
     'encrypt' => false,
-    'files' => '/var/www/serdalo.site/storage/framework/sessions',
+    'files' => '/home/comrade/PhpstormProjects/serdalo.site/storage/framework/sessions',
     'connection' => NULL,
     'table' => 'sessions',
     'store' => NULL,
@@ -1021,9 +1021,9 @@
   array (
     'paths' => 
     array (
-      0 => '/var/www/serdalo.site/resources/views',
+      0 => '/home/comrade/PhpstormProjects/serdalo.site/resources/views',
     ),
-    'compiled' => '/var/www/serdalo.site/storage/framework/views',
+    'compiled' => '/home/comrade/PhpstormProjects/serdalo.site/storage/framework/views',
   ),
   'passport' => 
   array (
