@@ -288,48 +288,51 @@
 
 
     <!-- header -->
-    <div class="header_wrapper bg-1" itemscope itemtype="http://schema.org/WPHeader">
+    <div class="header_wrapper bg-1">
         <header class="flex flex-row justify-between items-start md:items-center gap-5 max-w-7xl mx-auto p-5">
             <div class="header-left flex flex-wrap flex-1 items-center gap-2.5 md:gap-5">
-                <div class="header-logo flex items-center" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-                    <a href="{{ route('home') }}">
-                        <img src="{{ asset('frontend/v3/assets/media/base-v2/logo.svg') }}" alt="Logo" itemprop="url">
+                <div class="header-logo flex items-center">
+                    <a href="{{route('home')}}">
+                        <img src="{{ asset('frontend/v3/assets/media/base-v2/logo.svg') }}">
                     </a>
-                    <meta itemprop="name" content="Общенациональная газета Республики Ингушетия">
                 </div>
                 <div class="header-lead flex flex-col self-start text-sm md:text-base font-semibold md:font-bold gap-2 color-5">
-                    <h1 class="leading-none" itemprop="headline">
-                        {{ __('Общенациональная газета') }} <br> {{ __('Республики Ингушетия') }}
-                    </h1>
+                    <h1 class="leading-none">{{ __('Общенациональная газета') }} <br> {{ __('Республики Ингушетия') }}</h1>
                 </div>
             </div>
             <div class="header-right flex flex-col sm:flex-row items-end sm:items-center gap-5">
                 <div class="header-right-item hidden lg:flex items-center">
-                    <nav class="header-nav" itemscope itemtype="http://schema.org/SiteNavigationElement">
+                    <nav class="header-nav">
                         <ul class="flex items-center font-semibold gap-2.5">
-                            <li><a href="{{ route('posts-index') }}" itemprop="url">{{ __('Новости') }}</a></li>
-                            <li><a href="{{ route('materials-index') }}" itemprop="url">{{ __('Статьи') }}</a></li>
-                            <li><a href="{{ route('journalism-index') }}" itemprop="url">{{ __('Публицистика') }}</a></li>
+                            <li><a href="{{ route('posts-index') }}">{{ __('Новости') }}</a></li>
+                            <li><a href="{{ route('materials-index') }}">{{ __('Статьи') }}</a></li>
+                            <li><a href="{{ route('journalism-index') }}">{{ __('Публицистика') }}</a></li>
+
                         </ul>
                     </nav>
                 </div>
                 <div class="header-right-item lang-buttons flex flex-col sm:flex-row order-2 sm:order-2 items-center gap-2.5">
-                    <a href="@if(App::getLocale() !== 'ru') {{ route('change-language', 'ru') }} @else # @endif" class="cm-button cm-button-sm @if(App::getLocale() === 'ru') active @endif">
-                        {{ __('Рус') }}
-                    </a>
-                    <a href="@if(App::getLocale() !== 'inh') {{ route('change-language', 'inh') }} @else # @endif" class="cm-button cm-button-sm @if(App::getLocale() === 'inh') active @endif">
-                        {{ __('Инг') }}
-                    </a>
+                    <a
+                        href="@if(App::getLocale() !== 'ru') {{ route('change-language', 'ru') }} @else # @endif"
+                        class="cm-button cm-button-sm @if(App::getLocale() === 'ru') active @endif"
+                    >{{ __('Рус') }}</a>
+                    <a
+                        href="@if(App::getLocale() !== 'inh') {{ route('change-language', 'inh') }} @else # @endif"
+                        class="cm-button cm-button-sm @if(App::getLocale() === 'inh') active @endif"
+                    >{{ __('Инг') }}</a>
                 </div>
                 <div class="header-right-item flex order-1 sm:order-3 items-center gap-2.5">
-                    <div class="search-form" itemscope itemtype="http://schema.org/SearchAction">
-                        <form action="{{ route('search-index') }}" method="GET">
-                            <meta itemprop="target" content="{{ route('search-index') }}?search={search}">
-                            <input type="text" placeholder="Поиск по сайту" name="search" value="{{ request()->search ?? '' }}" itemprop="query-input">
-                            <button>Найти<img src="{{ asset('images/strelka.svg') }}" alt=""></button>
+
+                    <div class="search-form">
+                        <form action="{{ route('search-index') }}" method="$_GET">
+                            <input type="text" placeholder="Поиск по сайту" name="search" value="{{ request()->search ?? '' }}">
+                            <button>Найти<img src="{{asset('images/strelka.svg')}}" alt=""></button>
                         </form>
                     </div>
-                    <button class="js--open-search hidden md:block" id="js--open-search"></button>
+
+                    <button class="js--open-search hidden md:block" id="js--open-search">
+
+                    </button>
                     <a href="#nav-burger" class="js--open-nav">
                         <img src="{{ asset('frontend/v3/assets/media/base-v2/burger-icon.svg') }}">
                     </a>
