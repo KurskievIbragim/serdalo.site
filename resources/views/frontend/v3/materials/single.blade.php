@@ -54,6 +54,33 @@
                 <div >
                     <p class="mb-10 text-base font-semibold">{{ $material->lead }}</p>
                 </div>
+
+                @if((App::getlocale() === 'ru'))
+                    @if(!empty($material->comment))
+                        <div class="post-expert-section flex ">
+                            @if($material->expert && $material->expert->file)
+                                <div class="expert-img">
+                                    <img src="{{ $material->expert->file->full_preview_path }}" alt="">
+                                </div>
+                            @endif
+
+                            <div class="comment-body">
+
+                                @if($material->expert)
+                                    <div class="expert-info">
+                                        <p>{{$material->expert->title}}</p>
+                                        <p>{!! $material->expert->description !!}</p>
+                                    </div>
+                                @endif
+
+                                <div class="comment">
+                                    <p>{{$material->comment}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    @endif
+                @endif
+
                 <div class="cm-single-description text-base">
                     {!! $material->description  !!}
                 </div>

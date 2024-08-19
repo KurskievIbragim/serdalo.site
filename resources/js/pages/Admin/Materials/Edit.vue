@@ -89,6 +89,18 @@
                                 </select>
                                 <div v-if="errors.author_id" class="text-red-400">{{ errors.author_id | displayError }}</div>
                             </div>
+
+                            <div>
+                            <textarea-input class="h-96"  v-model="form.comment" :error="errors.comment" id="lead" rows="10" label="Комментарий эксперта" />
+                            <div class="pb-4 w-full">
+                                <label class="mb-2 block">Выберите экспрета:</label>
+                                <select v-model="form.expert_id" :class="{ 'input-error': errors.expert_id }" label="Experts" class="block w-full p-2 border rounded border-gray-400">
+                                    <option :value="null" />
+                                    <option v-for="expert in experts" :key="expert.id" :value="expert.id">{{ expert.title }}</option>
+                                </select>
+                                <div v-if="errors.expert_id" class="text-red-400">{{ errors.expert_id | displayError }}</div>
+                            </div>
+                        </div>
                             <button-primary type="submit" :isLoading="isStoreloading">Сохранить</button-primary>
                         </div>
                     </form>
@@ -142,6 +154,7 @@
                 photo_description: null,
                 photo_title: null,
                 thumb_id: null,
+                expert_id: null,
             },
             errors: {},
             categories: [],
@@ -178,6 +191,7 @@
                     this.form.lead = res.data.material.lead
                     this.form.description = res.data.material.description
                     this.form.category_id = res.data.material.category_id
+                    this.form.comment = res.data.material.comment
                     this.form.author_id = res.data.material.author_id
                     this.form.file_id = res.data.material.file_id
                     this.form.thumb_id = res.data.material.thumb_id
@@ -186,6 +200,7 @@
 
                     this.categories = res.data.categories
                     this.authors = res.data.authors
+                    this.experts = res.data.experts
                     this.files = res.data.files
                     this.thumb = res.data.thumb
                 })

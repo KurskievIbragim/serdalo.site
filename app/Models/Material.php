@@ -15,6 +15,11 @@ class Material extends Model
 
     protected $table = 'materials';
 
+    protected $fillable = [
+        'expert_id',
+        'comment'
+    ];
+
     protected $appends = ['title_short', 'subtitle_short', 'display_published_at'];
 
     public function getTitleAttribute($value)
@@ -62,7 +67,7 @@ class Material extends Model
 
     public function scopeMinimalSelect($query)
     {
-        $query->select(['id', 'slug', 'status', 'promote', 'promote_with_file', 'sticky', 'popular', 'title', 'subtitle', 'file_id', 'thumb_id', 'created_at']);
+        $query->select(['id', 'slug', 'expert_id', 'status', 'promote', 'promote_with_file', 'sticky', 'popular', 'title', 'subtitle', 'file_id', 'thumb_id', 'created_at']);
     }
 
     public function translation()
@@ -84,5 +89,10 @@ class Material extends Model
     public function author()
     {
         return $this->hasOne(Author::class, 'id', 'author_id');
+    }
+
+    public function expert()
+    {
+        return $this->hasOne(Expert::class, 'id', 'expert_id');
     }
 }

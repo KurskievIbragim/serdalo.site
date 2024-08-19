@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\v1\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Expert;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -79,9 +80,12 @@ class MaterialsController extends Controller
                 'error' => 'У вас нет прав для создания новостей'
             ], 403);
         }*/
+
+
         return response()->json([
             'categories' => Category::get(['id', 'title']),
             'authors' => Author::get(['id', 'title']),
+            'experts' => Expert::get(['id', 'title']),
         ]);
     }
     public function store(Request $request)
@@ -99,15 +103,18 @@ class MaterialsController extends Controller
                 'regex:~^[a-z0-9]+(?:(-|_)[a-z0-9]+)*$~', 'max:255',
                 'unique:materials,slug',
             ],
+            'comment' => ['nullable'],
             'category_id' => ['required', 'exists:categories,id'],
             'lead' => ['required'],
             'description' => ['required'],
             'author_id' => ['required', 'exists:authors,id'],
+            'expert_id' => ['nullable', 'exists:experts,id'],
             'file_id' => ['nullable', 'exists:files,id'],
             'photo_title' => ['nullable'],
             'published_at' => ['required'],
             'photo_description' => ['nullable'],
         ]);
+
 
         if($validator->fails()) {
             return response()->json([
@@ -131,6 +138,8 @@ class MaterialsController extends Controller
         $material->author_id = $request->author_id;
         $material->title = $request->title;
         $material->subtitle = $request->subtitle;
+        $material->expert_id = $request->expert_id;
+        $material->comment = $request->comment;
         $material->file_id = $request->file_id;
         $material->thumb_id = $request->thumb_id;
         $material->lead = $request->lead;
@@ -154,14 +163,18 @@ class MaterialsController extends Controller
         $material = Material::find($id);
         $material_file = $material->file;
 
+
+
         return response()->json([
             'material' => $material,
             'categories' => Category::get(['id', 'title']),
             'authors' => Author::get(['id', 'title']),
+            'experts' => Expert::get(['id', 'title']),
             'files' => ($material_file) ? [$material_file] : [],
             'thumb' => $material->thumb,
             'published_at' => $material->published_at,
             'photo_title' => $material->photo_title,
+            'comment' => $material->comment,
             'photo_description' => $material->photo_description,
             'description' => $material->description,
         ]);
@@ -185,6 +198,8 @@ class MaterialsController extends Controller
                 Rule::unique('materials', 'slug')->ignore($id),
             ],
             'lead' => ['required'],
+            'comment' => ['nullable'],
+            'expert_id' => ['nullable', 'exists:experts,id'],
             'description' => ['required'],
             'category_id' => ['nullable', 'exists:categories,id'],//required
             'author_id' => ['required', 'exists:authors,id'],
@@ -221,6 +236,8 @@ class MaterialsController extends Controller
         $material->photo_description = $request->photo_description;
         $material->description = $request->description;
         $material->published_at = $request->published_at;
+        $material->expert_id = $request->expert_id;
+        $material->comment = $request->comment;
         $material->save();
 
         return response()->json([

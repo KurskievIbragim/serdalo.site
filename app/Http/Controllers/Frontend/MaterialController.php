@@ -80,7 +80,7 @@ class MaterialController extends Controller
         $this->is_default_locale = (App::getlocale() === 'ru');
 
         $material = Material::
-        with(['file', 'thumb', 'author', 'category'])
+        with(['file', 'thumb', 'author', 'category', 'expert'])
         ->where('slug', $slug)
         ->when(!$this->is_default_locale, function($query) {
             $query->with('translation');//->whereHas('translation');
