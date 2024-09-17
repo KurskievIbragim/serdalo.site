@@ -58,13 +58,6 @@
                                     <div class="photo-author ">{{$post->photo_title}}</div>
                                     <div class="photo-description font-light">{{$post->photo_description}}</div>
                                 </div>
-                            @else
-                                @if(isset($post->photo_title))
-                                    <div class="flex flex-row mt-4 justify-between">
-                                        <div class="photo-author ">{{$post_translation->photo_title}}</div>
-                                        <div class="photo-description font-light">{{$post_translation->photo_description}}</div>
-                                    </div>
-                                @endif
                             @endif
                         @endif
                     @endif
