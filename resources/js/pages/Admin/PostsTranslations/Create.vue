@@ -15,6 +15,7 @@
                         <span class="mb-2 block">URL:</span>
                         <div class="block w-full p-2 border rounded border-gray-400">{{post.slug}}</div>
                     </div>
+
                     <div class="pb-4 w-full">
                         <span class="mb-2 block">Короткое опиание:</span>
                         <div class="block w-full p-2 border rounded border-gray-400">{{post.lead}}</div>
@@ -29,6 +30,11 @@
                     <form @submit.prevent="store">
                         <div class="p-6">
                             <text-input v-model="form.title" :error="errors.title" id="title" label="Заголовок" />
+                            <div class="d-flex">
+                                <text-input v-model="form.photo_title" :error="errors.image_title" id="photo_title" label="Автор фотографии" />
+                                <textarea-input class="h-96"  v-model="form.image_description" :error="errors.photo_description" id="photo_description" rows="10" label="Описание к фотографии" />
+                            </div>
+
                             <text-input v-model="form.slug" :error="errors.slug" id="slug" label="URL (оставьте пустым для автоматического формирования)" />
                             <textarea-input v-model="form.lead" :error="errors.lead" id="lead" label="Короткое опиание" />
                             <tiptap :editor="editor" v-model="form.description" :error="errors.description"  id="description" label="Описание" />
@@ -69,6 +75,8 @@
                 slug: null,
                 lead: null,
                 description: null,
+                image_title: null,
+                image_description: null,
             },
             errors: {},
         }),

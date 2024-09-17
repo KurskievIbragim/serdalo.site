@@ -53,10 +53,17 @@
                             <img class="cm-aspect-4/3 lg:aspect-auto object-cover" src="{{ $post->file->full_preview_path }}" alt="{{$post->title}}">
                         </div>
                         @if(isset($post->photo_title))
-                            <div class="flex flex-row mt-4 justify-between">
-                                <div class="photo-author ">{{$post->photo_title}}</div>
-                                <div class="photo-description font-light">{{$post->photo_description}}</div>
-                            </div>
+                            @if(App::getLocale() == 'ru')
+                                <div class="flex flex-row mt-4 justify-between">
+                                    <div class="photo-author ">{{$post->photo_title}}</div>
+                                    <div class="photo-description font-light">{{$post->photo_description}}</div>
+                                </div>
+                            @else
+                                <div class="flex flex-row mt-4 justify-between">
+                                    <div class="photo-author ">{{$post_translation->photo_title}}</div>
+                                    <div class="photo-description font-light">{{$post_translation->photo_description}}</div>
+                                </div>
+                            @endif
                         @endif
                     @endif
                 </div>

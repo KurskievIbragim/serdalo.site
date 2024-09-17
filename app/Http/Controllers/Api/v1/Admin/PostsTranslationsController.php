@@ -43,6 +43,8 @@ class PostsTranslationsController extends Controller
             ],
             'lead' => ['required'],
             'description' => ['required'],
+            'image_title' => ['nullable'],
+            'image_description' => ['nullable'],
         ]);
 
         if($validator->fails()) {
@@ -50,7 +52,7 @@ class PostsTranslationsController extends Controller
                 'errors' => $validator->errors()
             ], 422);
         }
-        
+
         $post = Post::findOrFail($post_id);
         $post_translation = new PostTranslation();
 
@@ -65,9 +67,11 @@ class PostsTranslationsController extends Controller
         $post_translation->title = $request->title;
         $post_translation->lead = $request->lead;
         $post_translation->description = $request->description;
+        $post_translation->image_title = $request->image_title;
+        $post_translation->image_description = $request->image_description;
 
         $post_translation->save();
-        
+
         return response()->json([
             'success' => 'Post translation created.',
             'post_translation' => $post_translation
@@ -85,6 +89,7 @@ class PostsTranslationsController extends Controller
         return response()->json([
             'post' => $post,
             'post_translation' => $post_translation,
+
         ]);
     }
     public function update(Request $request, $id)
@@ -98,6 +103,8 @@ class PostsTranslationsController extends Controller
             ],
             'lead' => ['required'],
             'description' => ['required'],
+            'image_title' => ['nullable'],
+            'image_description' => ['nullable'],
         ]);
 
         if($validator->fails()) {
@@ -107,18 +114,20 @@ class PostsTranslationsController extends Controller
         }
 
         $post_translation = PostTranslation::find($id);
-        
+
         if($request->slug) {
             $post_translation->slug = $request->slug;
         } else {
             $post_translation->slug = Str::slug($request->title);
         }
         $post_translation->title = $request->title;
+        $post_translation->image_title = $request->image_title;
         $post_translation->lead = $request->lead;
         $post_translation->description = $request->description;
+        $post_translation->image_description = $request->image_description;
 
         $post_translation->save();
-        
+
         return response()->json([
             'success' => 'Post translation updated.',
             'post_translation' => $post_translation

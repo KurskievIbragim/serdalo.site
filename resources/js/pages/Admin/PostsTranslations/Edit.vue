@@ -28,6 +28,10 @@
                     <form @submit.prevent="store">
                         <div class="p-6">
                             <text-input v-model="form.title" :error="errors.title" id="title" label="Заголовок" />
+                            <div class="d-flex">
+                                <text-input v-model="form.image_title" :error="errors.image_title" id="photo_title" label="Автор фотографии" />
+                                <textarea-input class="h-96"  v-model="form.image_description" :error="errors.image_description"  id="photo_description" rows="10" label="Описание к фотографии" />
+                            </div>
                             <text-input v-model="form.slug" :error="errors.slug" id="slug" label="URL (оставьте пустым для автоматического формирования)" />
                             <textarea-input v-model="form.lead" :error="errors.lead" id="lead" label="Короткое опиание" />
                             <tiptap :editor="editor" v-model="form.description" :error="errors.description" id="description" label="Описание" />
@@ -57,7 +61,7 @@
             SelectInput,
             ButtonSecondary,
             ButtonPrimary,
-	    Tiptap,	
+	    Tiptap,
         },
         data: () => ({
             isloading: true,
@@ -68,6 +72,8 @@
                 slug: null,
                 lead: null,
                 description: null,
+                image_title: null,
+                image_description: null
             },
             errors: {},
         }),
@@ -82,10 +88,12 @@
                 axios.get('/api/admin/posts/posts_translations/' + this.$route.params.id + '/edit')
                 .then(res => {
                     this.post = res.data.post
+                    this.form.image_title = res.data.post_translation.image_title
                     this.form.title = res.data.post_translation.title
                     this.form.slug = res.data.post_translation.slug
                     this.form.lead = res.data.post_translation.lead
                     this.form.description = res.data.post_translation.description
+                    this.form.image_description = res.data.post_translation.image_description
                 })
                 .finally(() => this.isloading = false)
             },
