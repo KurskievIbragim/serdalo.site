@@ -88,6 +88,7 @@ class PostController extends Controller
             $tagTitle = $this->is_default_locale ? __('All Categories') : __('Статьи');
         }
 
+
         return view($view, [
             'categories' => $categories,
             'post' => $post,

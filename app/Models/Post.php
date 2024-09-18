@@ -87,7 +87,6 @@ class Post extends Model
         return $value;
     }
 
-
     public function scopeMinimalSelect($query)
     {
         $query->select(['id', 'slug', 'status', 'promote', 'promote_with_file', 'sticky', 'title', 'comment', 'file_id', 'thumb_id', 'expert_id', 'published_at']);
