@@ -62,7 +62,7 @@
                             @endif
                         @else
                             <div class="flex flex-row mt-4 justify-between">
-                                <div class="photo-author ">{{$post->translation->image_description}}</div>
+                                <div class="photo-author ">{{$post->translation->image_tilte}}</div>
                                 <div class="photo-description font-light">{{$post->translation->image_description}}</div>
                             </div>
                         @endif
