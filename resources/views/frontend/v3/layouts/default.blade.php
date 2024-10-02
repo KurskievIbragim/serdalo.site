@@ -2,25 +2,26 @@
 <html>
     <head>
 	<meta charset="UTF-8">
-     	<title>
+    <title>
     @if (Route::is('home'))
-       Новости Ингушетии -  Газета "Сердало"
+        Главные новости Ингушетии - Газета "Сердало"
     @elseif (Route::is('posts.index'))
-       Новости Ингушетии -  Газета "Сердало"
+        Все новости Ингушетии - Газета "Сердало"
     @elseif (Route::is('materials.index'))
-       Новости Ингушетии -  Газета "Сердало"
-    @elseif (Route::is('post-single'))
-        @isset($post)
-            {{ $post->title }} — все новости Ингушетии в Газете "Сердало"
-        @endisset
-    @elseif (Route::is('material-single'))
-        @isset($material)
-            {{ $material->title }} — все новости Ингушетии в Газете "Сердало"
-        @endisset
+        Материалы и статьи - Газета "Сердало"
+    @elseif (Route::is('post-single') && isset($post))
+        {{ $post->title }} — Новости Ингушетии в Газете "Сердало"
+    @elseif (Route::is('material-single') && isset($material))
+        {{ $material->title }} — Статья в Газете "Сердало"
+    @elseif (Route::is('category') && isset($category))
+        Новости по теме {{ $category->name }} - Газета "Сердало"
+    @elseif (Route::is('tag') && isset($tag))
+        Новости по тегу {{ $tag->name }} - Газета "Сердало"
     @else
-       Новости Ингушетии - Газета "Сердало"
+        Новости Ингушетии - Газета "Сердало"
     @endif
 </title>
+
 
 
 	<meta name="robots" content="all"/>
@@ -38,8 +39,23 @@
         <meta property="og:image:height" content="630"/>
         <meta property="og:image:type" content="{{ isset($post) ? ($post->file->type ?? '') . '/' . ($post->file->extension ?? '') : (isset($material) ? ($material->file->type ?? '') . '/' . ($material->file->extension ?? '') : '') }}" />
         <meta name="keywords" content="Республика Ингушетия, Махмуд-Али Калиматов, новости, новости Ингушетия, беркат, футбол Ингушетии, курс доллара, погода, Новости сегодня, переводчик, время намаза ингушетия">
-        <meta name="description" content="{{ isset($post) ? $post->lead : (isset($material) ? $material->lead : 'Общенациональная газета «Сердало» - главное печатное издание Республики Ингушетия, предоставляющее читателям наиболее полную, оперативную, надежную и объективную информацию.') }}">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="
+    @if (Route::is('post-single') && isset($post))
+        {{ $post->lead }}
+    @elseif (Route::is('material-single') && isset($material))
+        {{ $material->lead }}
+    @elseif (Route::is('posts.index'))
+        Самые актуальные новости Ингушетии. Обзор событий дня в Газете 'Сердало'.
+    @elseif (Route::is('materials.index'))
+        Обзор аналитических материалов и статей в Газете 'Сердало'. Узнайте больше об актуальных проблемах региона.
+    @elseif (Route::is('category') && isset($category))
+        Новости на тему {{ $category->name }}. Самые интересные статьи и обзоры в Газете 'Сердало'.
+    @elseif (Route::is('tag') && isset($tag))
+        Материалы с тегом {{ $tag->name }}. Актуальные новости и аналитика в Газете 'Сердало'.
+    @else
+        Общенациональная газета 'Сердало' — главное печатное издание Республики Ингушетия, предоставляющее полную, оперативную и объективную информацию.
+    @endif
+">        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
         <link rel="stylesheet" href="{{asset('frontend/v3/assets/css/game.css')}}">
 
