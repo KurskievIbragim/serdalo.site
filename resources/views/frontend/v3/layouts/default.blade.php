@@ -4,7 +4,6 @@
 	<meta charset="UTF-8">
     <title>
         @if (Route::is('home'))
-            <title>
              Новости Ингушетии - Газета "Сердало"
             </title>
 
