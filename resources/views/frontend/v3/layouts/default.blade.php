@@ -2,47 +2,25 @@
 <html>
     <head>
 	<meta charset="UTF-8">
-        @if (Route::is('home'))
-            Новости Ингушетии - Газета "Сердало"
-            </title>
-
-        @elseif (Route::is('posts.index'))
-            @if (request()->has('page') && request()->get('page') > 1)
-                <title>Все новости Ингушетии - Страница {{ request()->get('page') }} - Газета "Сердало"</title>
-            @else
-                <title>Все новости Ингушетии - Газета "Сердало"</title>
-            @endif
-
-        @elseif (Route::is('materials-index') && isset($category_id))
-            @if (request()->has('page') && request()->get('page') > 1)
-                <title>Материалы по категории {{ $category->name }} - Страница {{ request()->get('page') }} - Газета "Сердало"</title>
-            @else
-                <title>Материалы по категории {{ $category->name }} - Газета "Сердало"</title>
-            @endif
-
-        @elseif (Route::is('material-single') && isset($material))
-            <title>{{ $material->title }} — Газета "Сердало"</title>
-
-        @elseif (Route::is('post-single') && isset($post))
-            <title>{{ $post->title }} — Новости Ингушетии в Газете "Сердало"</title>
-
-        @elseif (Route::is('category') && isset($category))
-            @if (request()->has('page') && request()->get('page') > 1)
-                <title>Новости по теме {{ $category->name }} - Страница {{ request()->get('page') }} - Газета "Сердало"</title>
-            @else
-                <title>Новости по теме {{ $category->name }} - Газета "Сердало"</title>
-            @endif
-
-        @elseif (Route::is('authors-index') && isset($author))
-            @if (request()->has('page') && request()->get('page') > 1)
-                <title>Публикации автора {{ $author->name }} - Страница {{ request()->get('page') }} - Газета "Сердало"</title>
-            @else
-                <title>Публикации автора {{ $author->name }} - Газета "Сердало"</title>
-            @endif
-
-        @else
-            <title>Новости Ингушетии - Газета "Сердало"</title>
-        @endif
+    <title>
+    @if (Route::is('home'))
+        Главные новости Ингушетии - Газета "Сердало"
+    @elseif (Route::is('posts.index'))
+        Все новости Ингушетии - Газета "Сердало"
+    @elseif (Route::is('materials.index'))
+        Материалы и статьи - Газета "Сердало"
+    @elseif (Route::is('post-single') && isset($post))
+        {{ $post->title }} — Новости Ингушетии в Газете "Сердало"
+    @elseif (Route::is('material-single') && isset($material))
+        {{ $material->title }} — Статья в Газете "Сердало"
+    @elseif (Route::is('category') && isset($category))
+        Новости по теме {{ $category->name }} - Газета "Сердало"
+    @elseif (Route::is('tag') && isset($tag))
+        Новости по тегу {{ $tag->name }} - Газета "Сердало"
+    @else
+        Новости Ингушетии - Газета "Сердало"
+    @endif
+</title>
 
 
 
