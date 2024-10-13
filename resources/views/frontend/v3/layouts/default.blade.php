@@ -2,9 +2,8 @@
 <html>
     <head>
 	<meta charset="UTF-8">
-    <title>
         @if (Route::is('home'))
-             Новости Ингушетии - Газета "Сердало"
+            Новости Ингушетии - Газета "Сердало"
             </title>
 
         @elseif (Route::is('posts.index'))
@@ -43,9 +42,7 @@
 
         @else
             <title>Новости Ингушетии - Газета "Сердало"</title>
-            @endif
-
-            </title>
+        @endif
 
 
 
